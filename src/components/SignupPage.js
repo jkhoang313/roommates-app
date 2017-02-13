@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { createUser } from '../actions/index'
+import { connect } from 'react-redux'
 
-export default class SignUpPage extends Component {
+class SignupPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -24,7 +27,7 @@ export default class SignUpPage extends Component {
       password: this.state.password,
       password_confirmation: this.state.passwordConfirmation,
     }
-    debugger
+    this.props.createUser(user)
   }
 
   render() {
@@ -62,3 +65,9 @@ export default class SignUpPage extends Component {
     )
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({createUser}, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(SignupPage)

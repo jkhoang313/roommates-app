@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Profile from './profile'
-import Wall from './wall'
+import Profile from './Profile'
+import Wall from './Wall'
 
 export default class Homepage extends Component {
   render() {
