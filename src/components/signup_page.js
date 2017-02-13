@@ -11,16 +11,27 @@ export default class SignUpPage extends Component {
       password: "",
       passwordConfirmation: ""
     }
+    this.submitForm = this.submitForm.bind(this)
   }
 
   submitForm(event) {
+    event.preventDefault()
+    const user = {
+      first_name: this.state.firstName,
+      last_name: this.state.lastName,
+      user_name: this.state.userName,
+      email: this.state.email,
+      password: this.state.password,
+      password_confirmation: this.state.passwordConfirmation,
+    }
+    debugger
   }
 
   render() {
     return (
       <div>
-      <h2>Sign Up Page</h2>
-        <form onSubmit={this.submitForm.bind(this)}>
+      <h2>Signup Page</h2>
+        <form onSubmit={this.submitForm}>
           <div className="input-field">
             <input type="text" id="first_name" className="validate" value={this.state.firstName} onChange={(event) => this.setState({ firstName: event.target.value })}/>
             <label htmlFor="first_name">First Name</label>

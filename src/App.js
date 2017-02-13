@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/navbar'
-import SignUpPage from './components/signup_page'
+import SignupPage from './components/signup_page'
 import Homepage from './components/homepage'
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
       <div>
         < NavBar />
         <div className="container">
-          < Homepage />
+          {this.props.children}
         </div>
       </div>
     );
