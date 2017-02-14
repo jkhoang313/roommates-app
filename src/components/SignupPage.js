@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
-import { createUser } from '../actions/index'
+import { createUser, session } from '../actions/index'
 import { connect } from 'react-redux'
 
 class SignupPage extends Component {
@@ -67,7 +67,7 @@ class SignupPage extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({createUser}, dispatch)
+  return bindActionCreators({createUser, session}, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(SignupPage)
