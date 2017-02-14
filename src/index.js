@@ -1,7 +1,8 @@
-import './index.css';
+import './index.css'
 import 'materialize-css/bin/materialize.css'
 import 'materialize-css/bin/materialize.js'
-import React from 'react';
+import 'jquery/dist/jquery.js'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore, applyMiddleware } from 'redux'
 import { Router, browserHistory } from 'react-router'
