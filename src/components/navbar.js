@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+import { bindActionCreators } from 'redux'
+import { logout } from '../actions/index'
 import { connect } from 'react-redux'
+
 
 class Navbar extends Component {
   constructor(props) {
@@ -8,14 +11,16 @@ class Navbar extends Component {
   }
 
   logout() {
-    debugger
+    sessionStorage.clear()
+    this.props.logout()
   }
 
   render() {
     var sessionTag
     if (this.props.session) {
       sessionTag = <ul id="nav-mobile" className="right">
-        <li><Link to="/homepage" onClick={this.logout.bind(this)}>Log Out</Link></li>
+        <li>{this.props.fullName}</li>
+        <li><Link to="/login" onClick={this.logout.bind(this)}>Log Out</Link></li>
       </ul>
     } else {
       sessionTag = <ul id="nav-mobile" className="right">
@@ -28,7 +33,7 @@ class Navbar extends Component {
       <nav>
         <div className="nav-wrapper">
           <Link to="/homepage" className="brand-logo left">Roommates</Link>
-            {sessionTag}
+          {sessionTag}
         </div>
       </nav>
     )
@@ -37,8 +42,13 @@ class Navbar extends Component {
 
 function mapStateToProps(state) {
   return {
-    session: !!state.session
+    session: !!state.session.jwt,
+    fullName: state.session.fullName
   }
 }
 
-export default connect(mapStateToProps)(Navbar)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({logout}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

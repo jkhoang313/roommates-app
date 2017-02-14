@@ -5,11 +5,49 @@ export function createUser(userObject) {
   const response = axios.post("http://localhost:3000/api/v1/users", userObject).then((data) => {
     sessionStorage.setItem("jwt", data.data.jwt)
     browserHistory.push("/homepage")
-    return data
+    return data.data
   })
 
   return {
     type: "CREATE_USER",
     payload: response
+  }
+}
+
+export function logout() {
+  return {
+    type: "UPDATE_SESSION",
+    payload: false
+  }
+}
+
+export function login(userObject) {
+  var response = axios.post("http://localhost:3000/api/v1/users/login", userObject).then((data) => {
+    if (!!data.data.jwt) {
+      sessionStorage.setItem("jwt", data.data.jwt)
+      browserHistory.push("/homepage")
+    }
+    return data.data
+ })
+
+  return {
+    type: "UPDATE_SESSION",
+    payload: response
+  }
+}
+
+export function fetchUser(jwt) {
+ //  var response = axios.post("http://localhost:3000/api/v1/users/login", ).then((data) => {
+ //    if (!!data.data.jwt) {
+ //      sessionStorage.setItem("jwt", data.data.jwt)
+ //      browserHistory.push("/homepage")
+ //    }
+ //    return data.data
+ // })
+ debugger
+
+  return {
+    type: "FETCH_USER",
+    payload: true
   }
 }
