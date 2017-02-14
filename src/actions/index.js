@@ -37,17 +37,12 @@ export function login(userObject) {
 }
 
 export function fetchUser(jwt) {
- //  var response = axios.post("http://localhost:3000/api/v1/users/login", ).then((data) => {
- //    if (!!data.data.jwt) {
- //      sessionStorage.setItem("jwt", data.data.jwt)
- //      browserHistory.push("/homepage")
- //    }
- //    return data.data
- // })
- debugger
+  var response = axios.post("http://localhost:3000/api/v1/users/current_user", {jwt_token: jwt}).then((data) => {
+    return data.data
+ })
 
   return {
     type: "FETCH_USER",
-    payload: true
+    payload: response
   }
 }
