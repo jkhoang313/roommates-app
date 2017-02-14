@@ -10,12 +10,10 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="col s3">
+      <div>
         <p>Profile Picture</p>
         <p>{this.props.fullName}</p>
         <p>{this.props.email}</p>
-        <p>Address</p>
-        <p>Your Roommates</p>
       </div>
     )
   }

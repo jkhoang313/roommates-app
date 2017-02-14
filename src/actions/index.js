@@ -36,6 +36,22 @@ export function login(userObject) {
   }
 }
 
+export function createHome(homeObject) {
+  var response = axios.post("http://localhost:3000/api/v1/homes/new", homeObject).then((data) => {
+    debugger
+    // if (!!data.data.jwt) {
+    //   sessionStorage.setItem("jwt", data.data.jwt)
+    //   browserHistory.push("/homepage")
+    // }
+    // return data.data
+ })
+
+  return {
+    type: "UPDATE_SESSION",
+    payload: response
+  }
+}
+
 export function fetchUser(jwt) {
   var response = axios.post("http://localhost:3000/api/v1/users/current_user", {jwt_token: jwt}).then((data) => {
     return data.data
