@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-export default class Chat extends Component {
+export default class Feed extends Component {
   render() {
     return (
-        <p>Chat</p>
+      <h1>Feed</h1>
     )
   }
 }
