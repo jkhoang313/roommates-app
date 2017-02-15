@@ -1,8 +1,11 @@
 import axios from 'axios'
 import { browserHistory } from 'react-router'
 
+axios.defaults.baseURL = 'http://localhost:3000/api/v1/'
+axios.defaults.headers.common['AUTHORIZATION'] = sessionStorage.getItem('jwt')
+
 export function createUser(userObject) {
-  const response = axios.post("http://localhost:3000/api/v1/users", userObject).then((data) => {
+  const response = axios.post('/users', userObject).then((data) => {
     sessionStorage.setItem("jwt", data.data.jwt)
     browserHistory.push("/homepage")
     return data.data
@@ -23,7 +26,7 @@ export function logout() {
 }
 
 export function login(userObject) {
-  var response = axios.post("http://localhost:3000/api/v1/users/login", userObject).then((data) => {
+  var response = axios.post("/users/login", userObject).then((data) => {
     if (!!data.data.jwt) {
       sessionStorage.setItem("jwt", data.data.jwt)
       browserHistory.push("/homepage")
@@ -38,24 +41,23 @@ export function login(userObject) {
 }
 
 export function createHome(homeObject) {
-  debugger
-  var response = axios.post("http://localhost:3000/api/v1/homes/new", homeObject).then((data) => {
+  var response = axios.post("/homes", homeObject).then((data) => {
 
     // if (!!data.data.jwt) {
     //   sessionStorage.setItem("jwt", data.data.jwt)
     //   browserHistory.push("/homepage")
     // }
-    // return data.data
+    return data
  })
 
   return {
-    type: "UPDATE_SESSION",
+    type: "",
     payload: response
   }
 }
 
-export function fetchUser(jwt) {
-  var response = axios.post("http://localhost:3000/api/v1/users/current_user", {jwt_token: jwt}).then((data) => {
+export function fetchUser() {
+  var response = axios.post("/users/current_user").then((data) => {
     return data.data
  })
 

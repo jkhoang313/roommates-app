@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { createHome } from '../actions'
 import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
 
 class HomeForm extends Component {
   constructor(props) {
@@ -16,10 +17,11 @@ class HomeForm extends Component {
   submitForm(event) {
     event.preventDefault()
     const home = {
-      homeName: this.state.homeName,
-      homeAddress: this.state.homeAddress,
+      name: this.state.homeName,
+      address: this.state.homeAddress,
     }
     this.props.createHome(home)
+    browserHistory.push('/homepage')
   }
 
   render() {
@@ -36,7 +38,11 @@ class HomeForm extends Component {
             <label htmlFor="home_name">Home Name</label>
           </div>
           <div className="input-field">
-            <input type="text" id="home_address" className="validate" value={ this.state.homeAddress } onChange={ (event) => this.setState({ homeAddress: event.target.value }) }/>
+            <input
+              type="text" id="home_address"
+              className="validate"
+              value={ this.state.homeAddress }
+              onChange={ (event) => this.setState({ homeAddress: event.target.value }) }/>
             <label htmlFor="home_address">Home Address</label>
           </div>
           <input type="submit" className="btn"/>

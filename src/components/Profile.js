@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 
 class Profile extends Component {
   componentDidMount() {
-    this.props.fetchUser(sessionStorage.jwt)
+    this.props.fetchUser()
   }
 
   render() {
