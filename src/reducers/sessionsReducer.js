@@ -6,6 +6,9 @@ export default function(state=!!sessionStorage.jwt, action) {
       return action.payload
     case "FETCH_USER":
       return action.payload
+    case "CREATE_HOME":
+    debugger
+      return action.payload
     default:
       return state
   }

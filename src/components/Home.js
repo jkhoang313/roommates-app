@@ -16,6 +16,7 @@ class Home extends Component {
 }
 
 function mapStateToProps(state) {
+  debugger
   return {
     homeName: state.session.homeName,
     homeAddress: state.session.homeAddress

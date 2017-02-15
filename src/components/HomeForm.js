@@ -21,7 +21,6 @@ class HomeForm extends Component {
       address: this.state.homeAddress,
     }
     this.props.createHome(home)
-    browserHistory.push('/homepage')
   }
 
   render() {
