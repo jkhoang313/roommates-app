@@ -7,12 +7,6 @@ import HomeForm from './HomeForm'
 
 class Homepage extends Component {
   render() {
-    var homeInfo
-    if (this.props.homeName){
-      homeInfo = < Wall />
-    } else {
-      homeInfo = < HomeForm />
-    }
     return (
       <div className="row">
         <div className="col s2">
@@ -20,7 +14,7 @@ class Homepage extends Component {
           < Home />
         </div>
         <div className="col s10">
-          { homeInfo }
+          { this.props.homeName && this.props.homeAddress ? < Wall /> : < HomeForm /> }
         </div>
       </div>
     )

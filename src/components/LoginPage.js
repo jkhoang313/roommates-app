@@ -26,13 +26,13 @@ class LoginPage extends Component {
     return (
       <div>
       <h2>Login Page</h2>
-        <form onSubmit={this.submitForm}>
+        <form onSubmit={ this.submitForm }>
           <div className="input-field">
-            <input type="text" id="user_name" className="validate" value={this.state.userName} onChange={(event) => this.setState({ userName: event.target.value })}/>
+            <input type="text" id="user_name" className="validate" value={ this.state.userName } onChange={ (event) => this.setState({ userName: event.target.value }) }/>
             <label htmlFor="user_name">User Name</label>
           </div>
           <div className="input-field">
-            <input type="password" id="password" className="validate" value={this.state.password} onChange={(event) => this.setState({ password: event.target.value })}/>
+            <input type="password" id="password" className="validate" value={ this.state.password } onChange={ (event) => this.setState({ password: event.target.value }) }/>
             <label htmlFor="password">Password</label>
           </div>
           <input type="submit" className="btn"/>
@@ -43,7 +43,7 @@ class LoginPage extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({login}, dispatch)
+  return bindActionCreators({ login }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(LoginPage)

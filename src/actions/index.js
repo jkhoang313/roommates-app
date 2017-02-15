@@ -6,6 +6,7 @@ export function createUser(userObject) {
     sessionStorage.setItem("jwt", data.data.jwt)
     browserHistory.push("/homepage")
     return data.data
+    // have to account for failures
   })
 
   return {

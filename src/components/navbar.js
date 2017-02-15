@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 class Navbar extends Component {
   constructor(props) {
     super(props)
+    this.logout = this.logout.bind(this)
   }
 
   logout() {
@@ -16,24 +17,17 @@ class Navbar extends Component {
   }
 
   render() {
-    var sessionTag
-    if (this.props.session) {
-      sessionTag = <ul id="nav-mobile" className="right">
-        <li>{this.props.fullName}</li>
-        <li><Link to="/login" onClick={this.logout.bind(this)}>Log Out</Link></li>
-      </ul>
-    } else {
-      sessionTag = <ul id="nav-mobile" className="right">
-        <li><Link to="/signup">Sign Up</Link></li>
-        <li><Link to="/login">Log In</Link></li>
-      </ul>
-    }
-
     return (
       <nav>
         <div className="nav-wrapper">
           <Link to="/homepage" className="brand-logo left">Roommates</Link>
-          {sessionTag}
+          <ul id="nav-mobile" className="right">
+          { this.props.session ?
+            [ <li>{ this.props.fullName }</li>,
+              <li><Link to="/login" onClick={ this.logout }>Log Out</Link></li>] :
+            [ <li><Link to="/signup">Sign Up</Link></li>,
+              <li><Link to="/login">Log In</Link></li>] }
+          </ul>
         </div>
       </nav>
     )
@@ -48,7 +42,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({logout}, dispatch)
+  return bindActionCreators({ logout }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

@@ -5,25 +5,16 @@ class Home extends Component {
   constructor(props){
     super(props)
   }
+
   render() {
-    var homeInfo
-    if (this.props.homeName){
-      homeInfo = <div>
-        <h1>{ this.props.homeName }</h1>
-        <h1>{ this.props.homeAddress }</h1>
-      </div>
-    } else {
-      <div>
-        <button></button>
-      </div>
-  }
     return (
       <div>
-
+        { this.props.homeName && this.props.homeAddress ? [<p>{ this.props.homeName }</p>, <p>{ this.props.homeAddress }</p>] : <p>No home</p> }
       </div>
     )
   }
 }
+
 function mapStateToProps(state) {
   return {
     homeName: state.session.homeName,

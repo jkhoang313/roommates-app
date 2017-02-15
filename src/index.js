@@ -2,6 +2,7 @@ import './index.css'
 import 'materialize-css/bin/materialize.css'
 import 'materialize-css/bin/materialize.js'
 import 'jquery/dist/jquery.js'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore, applyMiddleware } from 'redux'

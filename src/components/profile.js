@@ -11,9 +11,8 @@ class Profile extends Component {
   render() {
     return (
       <div>
-        <p>Profile Picture</p>
-        <p>{this.props.fullName}</p>
-        <p>{this.props.email}</p>
+        <p>{ this.props.fullName }</p>
+        <p>{ this.props.email }</p>
       </div>
     )
   }
@@ -21,14 +20,13 @@ class Profile extends Component {
 
 function mapStateToProps(state) {
   return {
-    session: !!state.session.jwt,
     fullName: state.session.fullName,
     email: state.session.email,
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchUser}, dispatch)
+  return bindActionCreators({ fetchUser }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

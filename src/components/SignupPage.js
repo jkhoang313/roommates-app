@@ -34,29 +34,29 @@ class SignupPage extends Component {
     return (
       <div>
       <h2>Signup Page</h2>
-        <form onSubmit={this.submitForm}>
+        <form onSubmit={ this.submitForm }>
           <div className="input-field">
-            <input type="text" id="first_name" className="validate" value={this.state.firstName} onChange={(event) => this.setState({ firstName: event.target.value })}/>
+            <input type="text" id="first_name" className="validate" value={ this.state.firstName } onChange={ (event) => this.setState({ firstName: event.target.value }) }/>
             <label htmlFor="first_name">First Name</label>
           </div>
           <div className="input-field">
-            <input type="text" id="last_name" className="validate" value={this.state.lastName} onChange={(event) => this.setState({ lastName: event.target.value })}/>
+            <input type="text" id="last_name" className="validate" value={ this.state.lastName } onChange={ (event) => this.setState({ lastName: event.target.value }) }/>
             <label htmlFor="last_name">Last Name</label>
           </div>
           <div className="input-field">
-            <input type="text" id="user_name" className="validate" value={this.state.userName} onChange={(event) => this.setState({ userName: event.target.value })}/>
+            <input type="text" id="user_name" className="validate" value={ this.state.userName } onChange={ (event) => this.setState({ userName: event.target.value }) }/>
             <label htmlFor="user_name">User Name</label>
           </div>
           <div className="input-field">
-            <input type="text" id="email" className="validate" value={this.state.email} onChange={(event) => this.setState({ email: event.target.value })}/>
+            <input type="text" id="email" className="validate" value={ this.state.email } onChange={ (event) => this.setState({ email: event.target.value }) }/>
             <label htmlFor="email">Email Address</label>
           </div>
           <div className="input-field">
-            <input type="password" id="password" className="validate" value={this.state.password} onChange={(event) => this.setState({ password: event.target.value })}/>
+            <input type="password" id="password" className="validate" value={ this.state.password } onChange={ (event) => this.setState({ password: event.target.value }) }/>
             <label htmlFor="password">Password</label>
           </div>
           <div className="input-field">
-            <input type="password" id="password_confirmation" className="validate" value={this.state.passwordConfirmation} onChange={(event) => this.setState({ passwordConfirmation: event.target.value })}/>
+            <input type="password" id="password_confirmation" className="validate" value={ this.state.passwordConfirmation } onChange={ (event) => this.setState({ passwordConfirmation: event.target.value }) }/>
             <label htmlFor="password_confirmation">Password Confirmation</label>
           </div>
           <input type="submit" className="btn"/>
@@ -67,7 +67,7 @@ class SignupPage extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({createUser}, dispatch)
+  return bindActionCreators({ createUser }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(SignupPage)
