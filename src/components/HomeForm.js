@@ -16,7 +16,7 @@ class HomeForm extends Component {
   submitForm(event) {
     event.preventDefault()
     const home = {
-      homeName: this.state.userName,
+      homeName: this.state.homeName,
       homeAddress: this.state.homeAddress,
     }
     this.props.createHome(home)

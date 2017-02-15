@@ -37,8 +37,9 @@ export function login(userObject) {
 }
 
 export function createHome(homeObject) {
+  debugger
   var response = axios.post("http://localhost:3000/api/v1/homes/new", homeObject).then((data) => {
-    debugger
+
     // if (!!data.data.jwt) {
     //   sessionStorage.setItem("jwt", data.data.jwt)
     //   browserHistory.push("/homepage")
