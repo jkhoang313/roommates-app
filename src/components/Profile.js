@@ -12,7 +12,7 @@ class Profile extends Component {
   render() {
     return (
       <div>
-        <p>{ this.props.fullName }</p>
+        <p>{ this.props.userName }</p>
         <p>{ this.props.email }</p>
       </div>
     )
@@ -21,7 +21,7 @@ class Profile extends Component {
 
 function mapStateToProps(state) {
   return {
-    fullName: state.currentUser.full_name,
+    userName: state.currentUser.user_name,
     email: state.currentUser.email,
   }
 }
