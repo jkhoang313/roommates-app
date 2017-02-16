@@ -2,14 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class Home extends Component {
-  constructor(props){
-    super(props)
-  }
-
   render() {
     return (
       <div>
-        { this.props.homeName && this.props.homeAddress ? [<p>{ this.props.homeName }</p>, <p>{ this.props.homeAddress }</p>] : <p>No home</p> }
+        { this.props.homeName && this.props.homeAddress ? [<p key="1">{ this.props.homeName }</p>, <p key="2">{ this.props.homeAddress }</p>] : <p>No home</p> }
       </div>
     )
   }

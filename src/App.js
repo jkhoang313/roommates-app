@@ -8,7 +8,7 @@ class App extends Component {
       <div>
         < NavBar />
         <div className="container">
-          {this.props.children}
+          { this.props.children }
         </div>
       </div>
     );
