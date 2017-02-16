@@ -33,6 +33,7 @@ class ChatForm extends Component {
           <div className="input-field">
           <input
             type='text'
+            id='messageField'
             value={this.state.chatter}
             onChange={this.handleChange.bind(this)} />
           <label htmlFor="messageField">Enter a message</label>

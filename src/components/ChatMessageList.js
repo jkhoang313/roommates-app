@@ -16,7 +16,9 @@ class ChatMessageList extends Component {
         <ul>
           {messages.map(
             (message) =>
-              <ChatMessage message={message.message_content} by={this.props.fullName} />)}
+              <ChatMessage
+                message={message.message_content}
+                by={message.user.user_name} />)}
         </ul>
       </div>
     )
@@ -25,7 +27,6 @@ class ChatMessageList extends Component {
 
 function mapStateToProps(state) {
   return {
-    fullName: state.session.fullName,
     messages: state.messages
   }
 }
