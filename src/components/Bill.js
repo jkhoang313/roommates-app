@@ -8,21 +8,23 @@ import TransactionsList from './TransactionsList'
 class Bill extends Component {
   componentDidMount() {
     this.props.fetchBill()
-    // numbers aren't saved as decimals
   }
 
   render() {
     return (
       <div className="row">
-        <p>Bill</p>
-        <p>Total Bill: ${ this.props.billInfo.total }</p>
-        < TransactionForm />
-        < TransactionsList />
+
+        { !!this.props.billInfo.total ?
+            [<p>Bill</p>,
+            <p>Total Bill: ${ this.props.billInfo.total }</p>,
+            <p>Each person owes: ${ (this.props.billInfo.total/this.props.billInfo.users.length).toFixed(2) }</p>,
+            < TransactionForm />,
+            < TransactionsList /> ] : <p>Loading</p>
+        }
       </div>
     )
   }
 }
-
 
 function mapStateToProps(state) {
   return {

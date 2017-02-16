@@ -21,7 +21,6 @@ class Profile extends Component {
 }
 
 function mapStateToProps(state) {
-  debugger
   return {
     userName: state.currentUser.user_name,
     email: state.currentUser.email,
