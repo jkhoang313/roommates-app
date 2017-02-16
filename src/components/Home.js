@@ -1,21 +1,31 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { fetchHome } from '../actions'
 
 class Home extends Component {
   render() {
     return (
       <div>
-        { this.props.homeName && this.props.homeAddress ? [<p key="1">{ this.props.homeName }</p>, <p key="2">{ this.props.homeAddress }</p>] : <p>No home</p> }
+        { !!this.props.name ? [<p key="1">{ this.props.name }</p>, <p key="2">{ this.props.address }</p>] : <p>No home</p> }
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-  return {
-    homeName: state.session.homeName,
-    homeAddress: state.session.homeAddress
+  if (!!state.home) {
+    return {
+      name: state.home.name,
+      address: state.home.address
+    }
+  } else {
+    return {}
   }
 }
 
-export default connect(mapStateToProps)(Home)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchHome }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

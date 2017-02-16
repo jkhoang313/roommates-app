@@ -1,11 +1,10 @@
 export default function(state={}, action) {
-  // change the default?
   switch (action.type) {
-    case "CREATE_USER":
+    case "FETCH_USER":
+      return action.payload.home
+    case "CREATE_HOME":
       return action.payload
     case "UPDATE_SESSION":
-      return action.payload
-    case "FETCH_USER":
       return action.payload
     default:
       return state

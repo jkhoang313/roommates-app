@@ -9,15 +9,15 @@ export default {
    return axios.post('/users', userObject).then((data) => {
      sessionStorage.setItem("jwt", data.data.jwt)
      browserHistory.push("/homepage")
-     return data.data
+     return data.data.user
    // have to account for failures
     })
   },
  login: function(userObject) {
    return axios.post("/users/login", userObject).then((data) => {
      if (!!data.data.jwt) {
-         sessionStorage.setItem("jwt", data.data.jwt)
-         browserHistory.push("/homepage")
+        sessionStorage.setItem("jwt", data.data.jwt)
+        browserHistory.push("/homepage")
      }
      return data.data
     })

@@ -18,7 +18,7 @@ class ChatMessageList extends Component {
             (message) =>
               <ChatMessage
                 message={message.message_content}
-                by={message.user.user_name} />)}
+                by={message.user.user_name} key={message.id}/>)}
         </ul>
       </div>
     )

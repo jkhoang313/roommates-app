@@ -14,7 +14,7 @@ class Homepage extends Component {
           < Home />
         </div>
         <div className="col s10">
-          { this.props.homeName && this.props.homeAddress ? < Wall /> : < HomeForm /> }
+          { this.props.existingHome ? < Wall /> : < HomeForm /> }
         </div>
       </div>
     )
@@ -23,8 +23,7 @@ class Homepage extends Component {
 
 function mapStateToProps(state) {
   return {
-    homeName: state.session.homeName,
-    homeAddress: state.session.homeAddress
+    existingHome: !!state.home,
   }
 }
 

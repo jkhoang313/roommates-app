@@ -2,13 +2,19 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { logout } from '../actions/index'
+import { logout, fetchUser } from '../actions/index'
 
 
 class Navbar extends Component {
   constructor(props) {
     super(props)
     this.logout = this.logout.bind(this)
+  }
+
+  componentDidMount() {
+    if (!!sessionStorage.jwt) {
+      this.props.fetchUser()
+    }
   }
 
   logout() {
@@ -22,8 +28,8 @@ class Navbar extends Component {
         <div className="nav-wrapper">
           <Link to="/homepage" className="brand-logo left">Roommates</Link>
           <ul id="nav-mobile" className="right">
-          { this.props.session ?
-            [ <li key="1">{ this.props.fullName }</li>,
+          { this.props.currentUser ?
+            [ <li key="1">{ this.props.userName }</li>,
               <li key="2"><Link to="/login" onClick={ this.logout }>Log Out</Link></li>] :
             [ <li key="1"><Link to="/signup">Sign Up</Link></li>,
              <li key="2"><Link to="/login">Log In</Link></li>] }
@@ -36,13 +42,13 @@ class Navbar extends Component {
 
 function mapStateToProps(state) {
   return {
-    session: !!state.session.jwt,
-    fullName: state.session.fullName
+    currentUser: !!state.currentUser.id,
+    userName: state.currentUser.user_name
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ logout }, dispatch)
+  return bindActionCreators({ logout, fetchUser }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

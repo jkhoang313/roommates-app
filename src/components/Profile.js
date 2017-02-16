@@ -21,8 +21,8 @@ class Profile extends Component {
 
 function mapStateToProps(state) {
   return {
-    fullName: state.session.fullName,
-    email: state.session.email,
+    fullName: state.currentUser.full_name,
+    email: state.currentUser.email,
   }
 }
 
