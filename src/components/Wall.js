@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Feed from './Feed'
 import Chat from './Chat'
-import BillShare from './BillShare'
+import Bill from './Bill'
 import Calendar from './Calendar'
 
 export default class Wall extends Component {
@@ -14,36 +14,36 @@ export default class Wall extends Component {
 
   goToFeed() {
     this.setState({
-      currentPage: <Feed/>
+      currentPage: < Feed />
     })
   }
 
   goToChat() {
     this.setState({
-      currentPage: <Chat/>
+      currentPage: < Chat />
     })
   }
 
-  goToBillShare() {
+  goToBill() {
     this.setState({
-      currentPage: <BillShare/>
+      currentPage: < Bill />
     })
   }
 
   goToCalendar() {
     this.setState({
-      currentPage: <Calendar/>
+      currentPage: < Calendar />
     })
   }
 
   render() {
     return (
-      <div className="col s9 center">
+      <div className="center">
         <button onClick={this.goToFeed.bind(this)}>Feed</button>
         <button onClick={this.goToChat.bind(this)}>Chat</button>
-        <button onClick={this.goToBillShare.bind(this)}>BillShare</button>
+        <button onClick={this.goToBill.bind(this)}>Bill</button>
         <button onClick={this.goToCalendar.bind(this)}>Calendar</button>
-        {this.state.currentPage}
+        { this.state.currentPage }
       </div>
     )
   }

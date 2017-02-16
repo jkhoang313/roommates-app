@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Profile from './Profile'
-import Wall from './Wall'
 import Home from './Home'
 import HomeForm from './HomeForm'
+import Wall from './Wall'
 
 class Homepage extends Component {
   render() {

@@ -1,4 +1,5 @@
 export default function(state=!!sessionStorage.jwt, action) {
+  // change the default?
   switch (action.type) {
     case "CREATE_USER":
       return action.payload
@@ -7,7 +8,6 @@ export default function(state=!!sessionStorage.jwt, action) {
     case "FETCH_USER":
       return action.payload
     case "CREATE_HOME":
-    debugger
       return action.payload
     default:
       return state

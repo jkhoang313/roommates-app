@@ -12,11 +12,11 @@ import promiseMiddleware from 'redux-promise'
 import routes from './routes'
 import rootReducer from './reducers'
 
-const store = createStore( rootReducer, applyMiddleware(promiseMiddleware))
+const store = createStore(rootReducer, applyMiddleware(promiseMiddleware))
 
 ReactDOM.render(
-  < Provider store={store}>
-    < Router history={browserHistory} routes={routes} />
+  < Provider store={ store }>
+    < Router history={ browserHistory } routes={ routes } />
   < /Provider >,
   document.getElementById('root')
 );

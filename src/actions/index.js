@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { browserHistory } from 'react-router'
 import usersAdapter from '../adapters/usersAdapter'
 import messagesAdapter from '../adapters/messagesAdapter'
 
@@ -12,6 +11,15 @@ export function createUser(userObject) {
   }
 }
 
+export function login(userObject) {
+  var response = usersAdapter.login(userObject)
+
+  return {
+    type: "UPDATE_SESSION",
+    payload: response
+  }
+}
+
 export function logout() {
   return {
     type: "UPDATE_SESSION",
@@ -19,11 +27,11 @@ export function logout() {
   }
 }
 
-export function login(userObject) {
-  var response = usersAdapter.login(userObject)
+export function fetchUser() {
+  var response = usersAdapter.fetchUser()
 
   return {
-    type: "UPDATE_SESSION",
+    type: "FETCH_USER",
     payload: response
   }
 }
@@ -37,11 +45,41 @@ export function createHome(homeObject) {
   }
 }
 
-export function fetchUser() {
-  var response = usersAdapter.fetchUser()
+
+export function fetchBill() {
+  axios.defaults.headers.common['AUTHORIZATION'] = sessionStorage.getItem('jwt')
+
+  var response = axios.get("/find_bill").then((data) => data.data)
 
   return {
-    type: "FETCH_USER",
+    type: "FETCH_BILL",
+    payload: response
+  }
+}
+
+export function createTransaction(transactionObject) {
+  const response = axios.post("/transactions", transactionObject).then((data) => data.data)
+
+  return {
+    type: "CREATE_TRANSACTION",
+    payload: response
+  }
+}
+
+export function fetchTransactions() {
+  const response = axios.get("/transactions").then((data) => data.data)
+
+  return {
+    type: "FETCH_TRANSACTIONS",
+    payload: response
+  }
+}
+
+export function deleteTransaction(id) {
+  const response = axios.delete(`/transactions/${id}`).then((data) => data.data)
+
+  return {
+    type: "DELETE_TRANSACTION",
     payload: response
   }
 }

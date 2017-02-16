@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
 import { bindActionCreators } from 'redux'
-import { logout } from '../actions/index'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
+import { logout } from '../actions/index'
 
 
 class Navbar extends Component {
@@ -23,10 +23,10 @@ class Navbar extends Component {
           <Link to="/homepage" className="brand-logo left">Roommates</Link>
           <ul id="nav-mobile" className="right">
           { this.props.session ?
-            [ <li>{ this.props.fullName }</li>,
-              <li><Link to="/login" onClick={ this.logout }>Log Out</Link></li>] :
-            [ <li><Link to="/signup">Sign Up</Link></li>,
-             <li><Link to="/login">Log In</Link></li>] }
+            [ <li key="1">{ this.props.fullName }</li>,
+              <li key="2"><Link to="/login" onClick={ this.logout }>Log Out</Link></li>] :
+            [ <li key="1"><Link to="/signup">Sign Up</Link></li>,
+             <li key="2"><Link to="/login">Log In</Link></li>] }
           </ul>
         </div>
       </nav>

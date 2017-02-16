@@ -1,11 +1,15 @@
 import { combineReducers } from 'redux'
 import usersReducer from './usersReducer'
 import sessionsReducer from './sessionsReducer'
+import billReducer from './billReducer'
+import transactionReducer from './transactionReducer'
 import messagesReducer from './messagesReducer'
 
 const rootReducer = combineReducers({
   createUser: usersReducer,
   session: sessionsReducer,
+  bill: billReducer,
+  transactions: transactionReducer
   messages: messagesReducer
 })
 

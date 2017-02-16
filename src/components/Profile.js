@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchUser } from '../actions/index'
+import { fetchUser } from '../actions'
 import { bindActionCreators } from 'redux'
 
 class Profile extends Component {
   componentDidMount() {
     this.props.fetchUser()
+    // need to load state with nav bar instead
   }
 
   render() {

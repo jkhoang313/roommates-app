@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
-import { createHome } from '../actions'
 import { connect } from 'react-redux'
-import { browserHistory } from 'react-router'
+import { createHome } from '../actions'
 
 class HomeForm extends Component {
   constructor(props) {
