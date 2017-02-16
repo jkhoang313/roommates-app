@@ -12,13 +12,15 @@ class SignupPage extends Component {
       userName: "",
       email: "",
       password: "",
-      passwordConfirmation: ""
+      passwordConfirmation: "",
+      imageURL: ""
     }
     this.submitForm = this.submitForm.bind(this)
   }
 
   submitForm(event) {
     event.preventDefault()
+    debugger
     const user = {
       first_name: this.state.firstName,
       last_name: this.state.lastName,
@@ -26,6 +28,7 @@ class SignupPage extends Component {
       email: this.state.email,
       password: this.state.password,
       password_confirmation: this.state.passwordConfirmation,
+      image_url: this.state.imageURL
     }
     this.props.createUser(user)
   }
@@ -50,6 +53,10 @@ class SignupPage extends Component {
           <div className="input-field">
             <input type="text" id="email" className="validate" value={ this.state.email } onChange={ (event) => this.setState({ email: event.target.value }) }/>
             <label htmlFor="email">Email Address</label>
+          </div>
+          <div className="input-field">
+            <input type="text" id="image-url" className="validate" value={ this.state.imageURL } onChange={ (event) => this.setState({ imageURL: event.target.value }) }/>
+            <label htmlFor="image-url">Image URL</label>
           </div>
           <div className="input-field">
             <input type="password" id="password" className="validate" value={ this.state.password } onChange={ (event) => this.setState({ password: event.target.value }) }/>

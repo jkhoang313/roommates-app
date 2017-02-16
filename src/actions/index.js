@@ -22,7 +22,7 @@ export function login(userObject) {
 
 export function logout() {
   return {
-    type: "UPDATE_SESSION",
+    type: "LOG_OUT",
     payload: false
   }
 }
@@ -120,6 +120,7 @@ export function deleteTransaction(id) {
 }
 
 export function fetchMessages(){
+  axios.defaults.baseURL = 'http://localhost:3000/api/v1'
   const messages = messagesAdapter.fetchMessages()
 
   return {

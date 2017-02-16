@@ -12,17 +12,20 @@ class Profile extends Component {
   render() {
     return (
       <div>
-        <p>{ this.props.userName }</p>
-        <p>{ this.props.email }</p>
+        <p><img src={ this.props.imageURL }/></p>
+        <p><b>Username:</b> { this.props.userName }</p>
+        <p><b>Email:</b> { this.props.email }</p>
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
+  debugger
   return {
     userName: state.currentUser.user_name,
     email: state.currentUser.email,
+    imageURL: state.currentUser.image_url
   }
 }
 

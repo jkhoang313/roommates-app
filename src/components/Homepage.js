@@ -9,10 +9,10 @@ class Homepage extends Component {
   render() {
     return (
       <div className="row">
-        <div className="col s2">
+        <div className="col s3">
           {this.props.loggedIn ? [< Profile />, < Home />] : <p>hi</p> }
         </div>
-        <div className="col s10">
+        <div className="col s9">
           { this.props.existingHome ? < Wall /> : < HomeForm /> }
         </div>
       </div>

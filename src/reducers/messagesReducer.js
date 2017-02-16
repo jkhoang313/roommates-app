@@ -5,6 +5,8 @@ export default function(state=[], action){
     case 'ADD_MESSAGE':
       debugger
       return [...state, action.payload ]
+    case 'LOG_OUT':
+      return []
     default:
       return state
   }

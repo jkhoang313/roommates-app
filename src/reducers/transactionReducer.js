@@ -6,6 +6,8 @@ export default function(state=[], action) {
       return action.payload
     case "DELETE_TRANSACTION":
       return action.payload
+    case "LOG_OUT":
+      return []
     default:
       return state
   }

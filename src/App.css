@@ -22,3 +22,13 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+img {
+  height: 100px;
+  width: 100px;
+}
+
+img.thumbnail {
+  height: 35px;
+  width: 35px;
+}

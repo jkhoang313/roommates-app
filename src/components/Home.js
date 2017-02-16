@@ -13,8 +13,9 @@ class Home extends Component {
     return (
       <div>
         { !!this.props.name ? [
-          <p key="1">{ this.props.name }</p>,
-          <p key="2">{ this.props.address }</p>,
+          <p key="1"><b>Home Name: </b>{ this.props.name }</p>,
+          <p key="2"><b>Address: </b>{ this.props.address }</p>,
+          <p><b>Members:</b></p>,
           <ol>
           {this.props.roommates.map((mate) => <li>{mate.user_name}</li>)}
           </ol>

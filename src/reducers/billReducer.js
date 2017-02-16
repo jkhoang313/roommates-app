@@ -11,6 +11,8 @@ export default function(state={}, action) {
       let newTotal = 0
       action.payload.forEach((object) => newTotal+=parseInt(object.amount, 10))
       return Object.assign({}, state, {total: newTotal})
+    case "LOG_OUT":
+      return {}
     default:
       return state
   }

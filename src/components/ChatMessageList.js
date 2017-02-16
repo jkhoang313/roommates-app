@@ -13,12 +13,12 @@ class ChatMessageList extends Component {
     const messages = this.props.messages
     return (
       <div>
-        <ul>
+        <ul className="left-align">
           {messages.map(
             (message) =>
               <ChatMessage
                 message={message.message_content}
-                by={message.user.user_name} key={message.id}/>)}
+                by={message.user.image_url} key={message.id}/>)}
         </ul>
       </div>
     )

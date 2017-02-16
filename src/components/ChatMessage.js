@@ -2,7 +2,7 @@ import React from 'react'
 
 const ChatMessage = (props) => {
   return (
-    <li>{props.message} by {props.by}</li>
+    <li className="avatar"><img  className="circle thumbnail" src={props.by}/> {props.message}</li>
   )
 }
 

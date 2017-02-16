@@ -32,7 +32,7 @@ class HomeSelector extends Component {
           <option value="" disabled selected>Choose your option</option>
           {this.props.homes.map((home) => <option value={home.id}>{home.name}</option>)}
         </select>
-        <button type='submit'></button>
+        <button type='submit'>Join Home</button>
       </div>
       </form>
       </div>

@@ -8,6 +8,8 @@ export default function(state=false, action) {
       return action.payload
     case "UPDATE_SESSION":
       return action.payload
+    case "LOG_OUT":
+      return false
     default:
       return state
   }
