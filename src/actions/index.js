@@ -120,7 +120,8 @@ export function deleteTransaction(id) {
 }
 
 export function fetchMessages(){
-  axios.defaults.baseURL = 'http://localhost:3000/api/v1'
+  // axios.defaults.baseURL = 'http://localhost:3000/api/v1'
+  axios.defaults.baseURL = 'http://roommatez-api.herokuapp.com/api/v1'
   const messages = messagesAdapter.fetchMessages()
 
   return {
