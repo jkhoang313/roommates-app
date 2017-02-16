@@ -73,3 +73,12 @@ export function fetchTransactions() {
     payload: response
   }
 }
+
+export function deleteTransaction(id) {
+  const response = axios.delete(`/transactions/${id}`).then((data) => data.data)
+
+  return {
+    type: "DELETE_TRANSACTION",
+    payload: response
+  }
+}

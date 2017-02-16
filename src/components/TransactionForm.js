@@ -31,8 +31,8 @@ class TransactionForm extends Component {
 
   render() {
     return (
-      <div className="left-align">
-      <h2>Add A Transaction</h2>
+      <div className="left-align col s4">
+        <h4>Add A Transaction</h4>
         <form onSubmit={ this.submitForm }>
           <div className="input-field">
             <input

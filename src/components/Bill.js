@@ -13,7 +13,7 @@ class Bill extends Component {
 
   render() {
     return (
-      <div>
+      <div className="row">
         <p>Bill</p>
         <p>Total Bill: ${ this.props.billInfo.total }</p>
         < TransactionForm />

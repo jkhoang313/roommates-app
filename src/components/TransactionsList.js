@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { fetchTransactions } from '../actions'
+import { fetchTransactions, deleteTransaction } from '../actions'
 
 class TransactionsList extends Component {
   componentDidMount() {
     this.props.fetchTransactions()
   }
 
+  deleteTransaction(id) {
+    this.props.deleteTransaction(id)
+  }
+
   render() {
     return (
-      <div className="left-align">
+      <div className="left-align col s5 offset-s3">
         <h4>Transactions</h4>
         <table>
           <thead>
@@ -18,12 +22,15 @@ class TransactionsList extends Component {
               <th>Title</th>
               <th>Description</th>
               <th>Amount</th>
+              <th>Person</th>
             </tr>
           </thead>
           <tbody>
-        { this.props.transactions.map((transaction, index) =>
-            <tr key={index}>
+        { this.props.transactions.map((transaction) =>
+            <tr key={transaction.id}>
              <td>{transaction.title}</td> <td>{transaction.description}</td> <td>${transaction.amount}</td>
+             <td>{transaction.user.user_name}</td>
+             <td><button onClick={this.deleteTransaction.bind(this, transaction.id)}>Delete</button></td>
             </tr>
          )}
           </tbody>
@@ -41,7 +48,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchTransactions }, dispatch)
+  return bindActionCreators({ fetchTransactions, deleteTransaction }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TransactionsList)

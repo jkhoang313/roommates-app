@@ -3,7 +3,13 @@ export default function(state={}, action) {
     case "FETCH_BILL":
       return action.payload
     case "CREATE_TRANSACTION":
-      return Object.assign({}, state, {total: state.total+parseInt(action.payload.amount, 10)})
+      var newTotal = 0
+      action.payload.forEach((object) => newTotal+=parseInt(object.amount))
+      return Object.assign({}, state, {total: newTotal})
+    case "DELETE_TRANSACTION":
+      var newTotal = 0
+      action.payload.forEach((object) => newTotal+=parseInt(object.amount))
+      return Object.assign({}, state, {total: newTotal})
     default:
       return state
   }
