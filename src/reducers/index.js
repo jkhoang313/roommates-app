@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
   createUser: usersReducer,
   session: sessionsReducer,
   bill: billReducer,
-  transactions: transactionReducer
+  transactions: transactionReducer,
   messages: messagesReducer
 })
 
