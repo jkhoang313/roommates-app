@@ -45,6 +45,41 @@ export function createHome(homeObject) {
   }
 }
 
+export function fetchHome() {
+  axios.defaults.headers.common['AUTHORIZATION'] = sessionStorage.getItem('jwt')
+
+  var response = axios.get('/home').then((data) => {
+    return data.data
+ })
+
+  return {
+    type: "FETCH_HOME",
+    payload: response
+  }
+}
+ export function fetchHomes(){
+   var response = axios.get('/homes').then((data) => {
+     return data.data
+   })
+
+   return {
+     type: "FETCH_HOMES",
+     payload: response
+   }
+ }
+
+export function addToHome(homeID){
+  axios.defaults.headers.common['AUTHORIZATION'] = sessionStorage.getItem('jwt')
+
+  var response = axios.patch(`/homes/${homeID}`).then((data) => {
+    return data.data
+  })
+
+  return {
+    type: "ADD_TO_HOME",
+    payload: response
+  }
+}
 
 export function fetchBill() {
   axios.defaults.headers.common['AUTHORIZATION'] = sessionStorage.getItem('jwt')

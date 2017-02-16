@@ -5,12 +5,14 @@ import homeReducer from './homeReducer'
 import billReducer from './billReducer'
 import transactionReducer from './transactionReducer'
 import messagesReducer from './messagesReducer'
+import allHomesReducer from './allHomesReducer'
 
 const rootReducer = combineReducers({
   createUser: usersReducer,
   // session: sessionsReducer,
   currentUser: sessionsReducer,
   home: homeReducer,
+  allHomes: allHomesReducer,
   bill: billReducer,
   transactions: transactionReducer,
   messages: messagesReducer

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import HomeSelector from './HomeSelector'
 import { createHome } from '../actions'
 
 class HomeForm extends Component {
@@ -25,6 +26,7 @@ class HomeForm extends Component {
   render() {
     return (
       <div>
+        <HomeSelector />
       <h2>Home Form Page</h2>
         <form onSubmit={ this.submitForm }>
           <div className="input-field">

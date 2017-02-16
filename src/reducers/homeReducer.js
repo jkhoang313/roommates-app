@@ -1,7 +1,9 @@
-export default function(state={}, action) {
+export default function(state=false, action) {
   switch (action.type) {
-    case "FETCH_USER":
-      return action.payload.home
+    case "FETCH_HOME":
+      return action.payload
+    case "ADD_TO_HOME":
+      return action.payload
     case "CREATE_HOME":
       return action.payload
     case "UPDATE_SESSION":

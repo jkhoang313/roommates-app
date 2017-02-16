@@ -1,4 +1,4 @@
-export default function(state={}, action) {
+export default function(state=false, action) {
   // change the default?
   switch (action.type) {
     case "CREATE_USER":

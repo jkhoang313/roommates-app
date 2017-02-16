@@ -4,10 +4,22 @@ import { bindActionCreators } from 'redux'
 import { fetchHome } from '../actions'
 
 class Home extends Component {
+
+  componentDidMount(){
+    this.props.fetchHome()
+  }
+
   render() {
     return (
       <div>
-        { !!this.props.name ? [<p key="1">{ this.props.name }</p>, <p key="2">{ this.props.address }</p>] : <p>No home</p> }
+        { !!this.props.name ? [
+          <p key="1">{ this.props.name }</p>,
+          <p key="2">{ this.props.address }</p>,
+          <ol>
+          {this.props.roommates.map((mate) => <li>{mate.user_name}</li>)}
+          </ol>
+        ] :
+        <p>No home</p> }
       </div>
     )
   }
@@ -17,10 +29,15 @@ function mapStateToProps(state) {
   if (!!state.home) {
     return {
       name: state.home.name,
-      address: state.home.address
+      address: state.home.address,
+      roommates: state.home.users
     }
   } else {
-    return {}
+    return {
+      name: "",
+      address: "",
+      roommates: []
+    }
   }
 }
 

@@ -10,8 +10,7 @@ class Homepage extends Component {
     return (
       <div className="row">
         <div className="col s2">
-          < Profile />
-          < Home />
+          {this.props.loggedIn ? [< Profile />, < Home />] : <p>hi</p> }
         </div>
         <div className="col s10">
           { this.props.existingHome ? < Wall /> : < HomeForm /> }
@@ -23,7 +22,8 @@ class Homepage extends Component {
 
 function mapStateToProps(state) {
   return {
-    existingHome: !!state.home,
+    existingHome: state.home,
+    loggedIn: state.currentUser
   }
 }
 
