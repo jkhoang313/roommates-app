@@ -1,3 +1,4 @@
+import $ from 'jquery'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -11,13 +12,14 @@ class EventList extends Component {
   render(){
     return (
       <div>
+        {$}
         <ul className="left-align">
           { this.props.events.map((event) =>
             <li>
               <ul>
                 <li>{event.title}</li>
                 <li>{event.description}</li>
-                  <li></li>}
+                  <li></li>
               </ul>
             </li>
           )}
