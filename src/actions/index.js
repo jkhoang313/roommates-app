@@ -78,6 +78,15 @@ export function addToHome(homeId){
   }
 }
 
+export function removeHome() {
+  var response = homesAdapter.removeHome()
+
+  return {
+    type: "REMOVE_HOME",
+    payload: response
+  }
+}
+
 export function fetchBill() {
   var response = billsAdapter.fetchCurrentBill()
 

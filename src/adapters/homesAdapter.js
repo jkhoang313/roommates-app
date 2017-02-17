@@ -17,6 +17,11 @@ export default {
  addToHome(homeId) {
     axios.defaults.headers.common['AUTHORIZATION'] =   sessionStorage.getItem('jwt')
 
-    return axios.patch(`/add_user/${homeId}`).then(data => data.data)
+    return axios.patch(`/add_home/${homeId}`).then(data => data.data)
+ },
+ removeHome() {
+   axios.defaults.headers.common['AUTHORIZATION'] =   sessionStorage.getItem('jwt')
+
+   return axios.patch('/remove_home').then(data => data.data)
  }
 }

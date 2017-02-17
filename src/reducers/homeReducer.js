@@ -6,7 +6,7 @@ export default function(state=false, action) {
       return action.payload
     case "CREATE_HOME":
       return action.payload
-    case "LEAVE_HOME":
+    case "REMOVE_HOME":
       return false
     case "LOG_OUT":
       return action.payload
