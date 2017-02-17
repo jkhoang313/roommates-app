@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { login } from '../actions'
+import { logIn } from '../actions'
 
 class LoginPage extends Component {
   constructor(props) {
@@ -16,10 +16,10 @@ class LoginPage extends Component {
   submitForm(event) {
     event.preventDefault()
     const user = {
-      userName: this.state.userName,
+      user_name: this.state.userName,
       password: this.state.password,
     }
-    this.props.login(user)
+    this.props.logIn(user)
   }
 
   render() {
@@ -43,7 +43,7 @@ class LoginPage extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ login }, dispatch)
+  return bindActionCreators({ logIn }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(LoginPage)

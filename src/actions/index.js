@@ -1,9 +1,14 @@
 import axios from 'axios'
 import usersAdapter from '../adapters/usersAdapter'
+import homesAdapter from '../adapters/homesAdapter'
+import billsAdapter from '../adapters/billsAdapter'
+import transactionsAdapter from '../adapters/transactionsAdapter'
 import messagesAdapter from '../adapters/messagesAdapter'
 
+axios.defaults.baseURL = 'http://localhost:3000/api/v1'
+
 export function createUser(userObject) {
-  const response = usersAdapter.createUser(userObject)
+  var response = usersAdapter.createUser(userObject)
 
   return {
     type: "CREATE_USER",
@@ -11,16 +16,16 @@ export function createUser(userObject) {
   }
 }
 
-export function login(userObject) {
-  var response = usersAdapter.login(userObject)
+export function logIn(userObject) {
+  var response = usersAdapter.logIn(userObject)
 
   return {
-    type: "UPDATE_SESSION",
+    type: "LOG_IN",
     payload: response
   }
 }
 
-export function logout() {
+export function logOut() {
   return {
     type: "LOG_OUT",
     payload: false
@@ -37,7 +42,7 @@ export function fetchUser() {
 }
 
 export function createHome(homeObject) {
-  var response = usersAdapter.createHome(homeObject)
+  var response = homesAdapter.createHome(homeObject)
 
   return {
     type: "CREATE_HOME",
@@ -45,22 +50,18 @@ export function createHome(homeObject) {
   }
 }
 
-export function fetchHome() {
+export function fetchCurrentHome() {
   axios.defaults.headers.common['AUTHORIZATION'] = sessionStorage.getItem('jwt')
 
-  var response = axios.get('/home').then((data) => {
-    return data.data
- })
+  var response = homesAdapter.fetchCurrentHome()
 
   return {
     type: "FETCH_HOME",
     payload: response
   }
 }
- export function fetchHomes(){
-   var response = axios.get('/homes').then((data) => {
-     return data.data
-   })
+ export function fetchAllHomes(){
+   var response = homesAdapter.fetchAllHomes()
 
    return {
      type: "FETCH_HOMES",
@@ -68,12 +69,8 @@ export function fetchHome() {
    }
  }
 
-export function addToHome(homeID){
-  axios.defaults.headers.common['AUTHORIZATION'] = sessionStorage.getItem('jwt')
-
-  var response = axios.patch(`/homes/${homeID}`).then((data) => {
-    return data.data
-  })
+export function addToHome(homeId){
+  var response = homesAdapter.addToHome(homeId)
 
   return {
     type: "ADD_TO_HOME",
@@ -82,9 +79,7 @@ export function addToHome(homeID){
 }
 
 export function fetchBill() {
-  axios.defaults.headers.common['AUTHORIZATION'] = sessionStorage.getItem('jwt')
-
-  var response = axios.get("/find_bill").then((data) => data.data)
+  var response = billsAdapter.fetchCurrentBill()
 
   return {
     type: "FETCH_BILL",
@@ -93,7 +88,7 @@ export function fetchBill() {
 }
 
 export function createTransaction(transactionObject) {
-  const response = axios.post("/transactions", transactionObject).then((data) => data.data)
+  var response = transactionsAdapter.createTransaction(transactionObject)
 
   return {
     type: "CREATE_TRANSACTION",
@@ -102,7 +97,7 @@ export function createTransaction(transactionObject) {
 }
 
 export function fetchTransactions() {
-  const response = axios.get("/transactions").then((data) => data.data)
+  var response = transactionsAdapter.fetchTransactions()
 
   return {
     type: "FETCH_TRANSACTIONS",
@@ -111,7 +106,7 @@ export function fetchTransactions() {
 }
 
 export function deleteTransaction(id) {
-  const response = axios.delete(`/transactions/${id}`).then((data) => data.data)
+  var response = transactionsAdapter.deleteTransaction(id)
 
   return {
     type: "DELETE_TRANSACTION",
@@ -120,9 +115,7 @@ export function deleteTransaction(id) {
 }
 
 export function fetchMessages(){
-  axios.defaults.baseURL = 'http://localhost:3000/api/v1'
-  // axios.defaults.baseURL = 'http://roommatez-api.herokuapp.com/api/v1'
-  const messages = messagesAdapter.fetchMessages()
+  var messages = messagesAdapter.fetchMessages()
 
   return {
     type: 'FETCH_MESSAGES',
@@ -131,7 +124,7 @@ export function fetchMessages(){
 }
 
 export function addMessage(message){
-  const newMessage = messagesAdapter.addMessage({message_content: message})
+  var newMessage = messagesAdapter.addMessage(message)
   return {
     type: 'ADD_MESSAGE',
     payload: newMessage

@@ -6,10 +6,10 @@ export default function(state=false, action) {
       return action.payload
     case "CREATE_HOME":
       return action.payload
-    case "UPDATE_SESSION":
-      return action.payload
-    case "LOG_OUT":
+    case "LEAVE_HOME":
       return false
+    case "LOG_OUT":
+      return action.payload
     default:
       return state
   }

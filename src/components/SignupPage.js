@@ -20,7 +20,6 @@ class SignupPage extends Component {
 
   submitForm(event) {
     event.preventDefault()
-    debugger
     const user = {
       first_name: this.state.firstName,
       last_name: this.state.lastName,

@@ -3,8 +3,7 @@ export default function(state=[], action){
     case 'FETCH_MESSAGES':
       return action.payload
     case 'ADD_MESSAGE':
-      debugger
-      return [...state, action.payload ]
+      return [...state, action.payload]
     case 'LOG_OUT':
       return []
     default:

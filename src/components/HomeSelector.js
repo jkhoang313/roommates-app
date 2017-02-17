@@ -1,40 +1,46 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fetchHomes, addToHome } from '../actions'
+import { fetchAllHomes, addToHome } from '../actions'
 
 class HomeSelector extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
-
-    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      value: ''
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.submitHandler = this.submitHandler.bind(this)
   }
+
   componentDidMount(){
-    this.props.fetchHomes()
-  }
-  handleChange(event) {
-    this.setState({value: event.target.value});
+    this.props.fetchAllHomes()
   }
 
-  submitHandler(e){
-    e.preventDefault()
-    console.log(this.state)
+  handleChange(event) {
+    this.setState({
+      value: event.target.value
+    })
+  }
+
+  submitHandler(event){
+    event.preventDefault()
     this.props.addToHome(this.state.value)
   }
+
   render(){
     return(
       <div>
         <h1>hello</h1>
-        <form onSubmit={this.submitHandler.bind(this)} >
+        <form onSubmit={ this.submitHandler } >
           <div className='input-field'>
-        <select value={this.state.value} onChange={this.handleChange} className='browser-default'>
-          <option value="" disabled selected>Choose your option</option>
-          {this.props.homes.map((home) => <option value={home.id}>{home.name}</option>)}
-        </select>
-        <button type='submit'>Join Home</button>
-      </div>
-      </form>
+            <select value={ this.state.value } onChange={ this.handleChange } className='browser-default'>
+          <option value="" disabled defaultValue>Choose a home to join</option>
+          { this.props.homes.map((home) => <option value={ home.id } key={ home.id }>{ home.name }</option>) }
+            </select>
+            <input type='submit' className="btn" value="Join Home"/>
+          </div>
+        </form>
       </div>
     )
   }
@@ -47,7 +53,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ fetchHomes, addToHome }, dispatch)
+  return bindActionCreators({ fetchAllHomes, addToHome }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeSelector)

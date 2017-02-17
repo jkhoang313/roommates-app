@@ -1,12 +1,11 @@
 export default function(state=false, action) {
-  // change the default?
   switch (action.type) {
     case "CREATE_USER":
       return action.payload
-    case "UPDATE_SESSION":
-      return action.payload
+    case "LOG_IN":
+      return action.payload.user
     case "LOG_OUT":
-      return action.payload
+      return false
     case "FETCH_USER":
       return action.payload
     default:
