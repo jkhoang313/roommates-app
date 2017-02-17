@@ -4,6 +4,7 @@ import homesAdapter from '../adapters/homesAdapter'
 import billsAdapter from '../adapters/billsAdapter'
 import transactionsAdapter from '../adapters/transactionsAdapter'
 import messagesAdapter from '../adapters/messagesAdapter'
+import eventsAdapter from '../adapters/eventsAdapter'
 
 axios.defaults.baseURL = 'http://localhost:3000/api/v1'
 
@@ -155,5 +156,22 @@ export function addMessage(message){
   return {
     type: 'ADD_MESSAGE',
     payload: newMessage
+  }
+}
+
+export function addEvent(eventObj){
+  var newEvent = eventsAdapter.addEvent(eventObj)
+  return {
+    type: 'ADD_EVENT',
+    payload: newEvent
+  }
+}
+
+export function fetchEvents(){
+  var events = eventsAdapter.fetchEvents()
+
+  return {
+    type: 'FETCH_EVENTS',
+    payload: events
   }
 }
