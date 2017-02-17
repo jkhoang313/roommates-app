@@ -25,5 +25,13 @@ export default {
     axios.defaults.headers.common['AUTHORIZATION'] = sessionStorage.getItem('jwt')
 
     return axios.get("/users/current_user").then(data => data.data)
+  },
+  updateUserProfile: function(userObject){
+    axios.defaults.headers.common['AUTHORIZATION'] = sessionStorage.getItem('jwt')
+
+    return axios.patch("/update_user_profile", userObject).then((data) => {
+      browserHistory.push("/homepage")
+      return data.data
+    })
   }
 }

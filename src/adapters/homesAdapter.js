@@ -23,5 +23,8 @@ export default {
    axios.defaults.headers.common['AUTHORIZATION'] =   sessionStorage.getItem('jwt')
 
    return axios.patch('/remove_home').then(data => data.data)
+ },
+ updateHome: function(homeId, homeObject){
+   return axios.patch(`/homes/${homeId}`, homeObject).then(data => data.data)
  }
 }

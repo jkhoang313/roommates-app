@@ -41,6 +41,15 @@ export function fetchUser() {
   }
 }
 
+export function updateUserProfile(userObject) {
+  var response = usersAdapter.updateUserProfile(userObject)
+
+  return {
+    type: "UPDATE_USER_PROFILE",
+    payload: response
+  }
+}
+
 export function createHome(homeObject) {
   var response = homesAdapter.createHome(homeObject)
 
@@ -83,6 +92,15 @@ export function removeHome() {
 
   return {
     type: "REMOVE_HOME",
+    payload: response
+  }
+}
+
+export function updateHome(homeId, homeObject) {
+  var response = homesAdapter.updateHome(homeId, homeObject)
+
+  return {
+    type: "UPDATE_HOME",
     payload: response
   }
 }

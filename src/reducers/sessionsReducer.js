@@ -8,6 +8,8 @@ export default function(state=false, action) {
       return false
     case "FETCH_USER":
       return action.payload
+    case "UPDATE_USER_PROFILE":
+      return action.payload
     default:
       return state
   }

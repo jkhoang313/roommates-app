@@ -12,6 +12,7 @@ class Profile extends Component {
     return (
       <div>
         <p><img src={ this.props.imageURL } alt={ this.props.firstName }/></p>
+        <p><b>Name:</b> { this.props.firstName } { this.props.lastName}</p>
         <p><b>Username:</b> { this.props.userName }</p>
         <p><b>Email:</b> { this.props.email }</p>
       </div>
