@@ -1,19 +1,25 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fetchCurrentHome, removeHome } from '../actions'
+import { fetchCurrentHome, removeHome, kickMember } from '../actions'
 
 class Home extends Component {
   constructor(props) {
     super(props)
     this.leaveHome = this.leaveHome.bind(this)
+    this.kickMember = this.kickMember.bind(this)
   }
+
   componentDidMount(){
     this.props.fetchCurrentHome()
   }
 
   leaveHome() {
     this.props.removeHome()
+  }
+
+  kickMember(event) {
+    this.props.kickMember(this.props.id, event.target.id)
   }
 
   render() {
@@ -24,9 +30,16 @@ class Home extends Component {
           [<p key="home"><b>Home Name: </b>{ this.props.name }</p>,
           <p key="address"><b>Address: </b>{ this.props.address }</p>,
           <p key="members"><b>Members: </b></p>,
-          <ol key="members-list">
-            { this.props.roommates.map((member, index) => <li key={index}>{ member.user_name }</li>) }
-          </ol>,
+          <ul key="members-list">
+            { this.props.roommates.map((member, index) => {
+              return <li key={index}>
+                <img src={member.image_url} className="circle thumbnail" alt={member.first_name}/>
+                 { member.user_name }
+                <br></br>
+                <button onClick={this.kickMember} id={member.id}>Kick</button>
+              </li>
+            }) }
+          </ul>,
           <p key="remove-home"><button onClick={this.leaveHome}>Leave Home</button></p>]}
       </div>
     )
@@ -36,6 +49,7 @@ class Home extends Component {
 function mapStateToProps(state) {
   return {
     existingHome: !state.home,
+    id: state.home.id,
     name: state.home.name,
     address: state.home.address,
     roommates: state.home.users || []
@@ -43,7 +57,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchCurrentHome, removeHome }, dispatch)
+  return bindActionCreators({ fetchCurrentHome, removeHome, kickMember }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

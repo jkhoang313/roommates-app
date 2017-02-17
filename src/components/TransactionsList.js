@@ -14,15 +14,15 @@ class TransactionsList extends Component {
 
   render() {
     return (
-      <div className="left-align col s5 offset-s3">
+      <div className="left-align col s6 offset-s2">
         <h4>Transactions</h4>
-        <table>
+        <table className="striped">
           <thead>
             <tr>
               <th>Title</th>
               <th>Description</th>
               <th>Amount</th>
-              <th>Person</th>
+              <th>Payer</th>
             </tr>
           </thead>
           <tbody>

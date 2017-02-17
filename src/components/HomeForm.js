@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import HomeSelector from './HomeSelector'
 import { createHome } from '../actions'
+import HomeSelector from './HomeSelector'
 
 class HomeForm extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class HomeForm extends Component {
     return (
       <div>
         <HomeSelector />
-      <h2>Home Form Page</h2>
+        <h3>Create a New Home</h3>
         <form onSubmit={ this.submitForm }>
           <div className="input-field">
             <input
@@ -45,7 +45,7 @@ class HomeForm extends Component {
               onChange={ (event) => this.setState({ homeAddress: event.target.value }) }/>
             <label htmlFor="home_address">Home Address</label>
           </div>
-          <input type="submit" className="btn"/>
+          <input type="submit" className="btn" value="Create Home"/>
         </form>
       </div>
     )

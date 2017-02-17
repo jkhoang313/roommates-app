@@ -105,6 +105,15 @@ export function updateHome(homeId, homeObject) {
   }
 }
 
+export function kickMember(homeId, memberId) {
+  var response = homesAdapter.kickMember(homeId, memberId)
+
+  return {
+    type: "UPDATE_HOME",
+    payload: response
+  }
+}
+
 export function fetchBill() {
   var response = billsAdapter.fetchCurrentBill()
 

@@ -10,6 +10,8 @@ export default function(state=false, action) {
       return action.payload
     case "REMOVE_HOME":
       return false
+    case "KICK_MEMBER":
+      return action.payload
     case "LOG_OUT":
       return action.payload
     default:
