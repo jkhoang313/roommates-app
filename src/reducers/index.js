@@ -5,6 +5,7 @@ import allHomesReducer from './allHomesReducer'
 import billReducer from './billReducer'
 import transactionReducer from './transactionReducer'
 import messagesReducer from './messagesReducer'
+import eventsReducer from './eventsReducer'
 
 const rootReducer = combineReducers({
   currentUser: sessionsReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   allHomes: allHomesReducer,
   bill: billReducer,
   transactions: transactionReducer,
-  messages: messagesReducer
+  messages: messagesReducer,
+  events: eventsReducer
 })
 
 export default rootReducer

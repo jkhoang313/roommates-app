@@ -35,9 +35,9 @@ class HomeSelector extends Component {
         <p onClick={this.showHomes}>See All Homes</p>
         <form onSubmit={ this.submitHandler } >
           <div className='input-field'>
-            <select value={ this.state.value } onChange={ this.handleChange } className="browser-default">
-          <option value="" disabled defaultValue>Choose a home to join</option>
-          { this.props.homes.map((home) => <option value={ home.id } key={ home.id }>{ home.name }</option>) }
+            <select value={ this.state.value } onChange={ this.handleChange } className='browser-default'>
+              <option value="" disabled defaultValue>Choose a home to join</option>
+              { this.props.homes.map((home) => <option value={ home.id } key={ home.id }>{ home.name }</option>) }
             </select>
             <input type='submit' className="btn" value="Join Home"/>
           </div>
