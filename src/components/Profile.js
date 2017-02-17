@@ -6,13 +6,12 @@ import { bindActionCreators } from 'redux'
 class Profile extends Component {
   componentDidMount() {
     this.props.fetchUser()
-    // need to load state with nav bar instead
   }
 
   render() {
     return (
       <div>
-        <p><img src={ this.props.imageURL }/></p>
+        <p><img src={ this.props.imageURL } alt={ this.props.firstName }/></p>
         <p><b>Username:</b> { this.props.userName }</p>
         <p><b>Email:</b> { this.props.email }</p>
       </div>
@@ -22,6 +21,8 @@ class Profile extends Component {
 
 function mapStateToProps(state) {
   return {
+    firstName: state.currentUser.first_name,
+    lastName: state.currentUser.last_name,
     userName: state.currentUser.user_name,
     email: state.currentUser.email,
     imageURL: state.currentUser.image_url

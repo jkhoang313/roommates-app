@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { logout, fetchUser } from '../actions/index'
+import { logOut, fetchUser } from '../actions/index'
 
 
 class Navbar extends Component {
   constructor(props) {
     super(props)
-    this.logout = this.logout.bind(this)
+    this.logOut = this.logOut.bind(this)
   }
 
   componentDidMount() {
@@ -17,9 +17,9 @@ class Navbar extends Component {
     }
   }
 
-  logout() {
+  logOut() {
     sessionStorage.clear()
-    this.props.logout()
+    this.props.logOut()
   }
 
   render() {
@@ -30,7 +30,7 @@ class Navbar extends Component {
           <ul id="nav-mobile" className="right">
           { this.props.currentUser ?
             [ <li key="1">{ this.props.userName }</li>,
-              <li key="2"><Link to="/login" onClick={ this.logout }>Log Out</Link></li>] :
+              <li key="2"><Link to="/login" onClick={ this.logOut }>Log Out</Link></li>] :
             [ <li key="1"><Link to="/signup">Sign Up</Link></li>,
              <li key="2"><Link to="/login">Log In</Link></li>] }
           </ul>
@@ -48,7 +48,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ logout, fetchUser }, dispatch)
+  return bindActionCreators({ logOut, fetchUser }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

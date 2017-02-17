@@ -7,10 +7,11 @@ import Wall from './Wall'
 
 class Homepage extends Component {
   render() {
+    // need to fixed rendering, it loads home form when rendering
     return (
       <div className="row">
         <div className="col s3">
-          {this.props.loggedIn ? [< Profile />, < Home />] : <p>hi</p> }
+          { this.props.loggedIn ? [< Profile key="profile"/>, < Home key="home"/>] : <p>Please Log In</p> }
         </div>
         <div className="col s9">
           { this.props.existingHome ? < Wall /> : < HomeForm /> }
@@ -22,8 +23,8 @@ class Homepage extends Component {
 
 function mapStateToProps(state) {
   return {
-    existingHome: state.home,
-    loggedIn: state.currentUser
+    existingHome: !!state.home,
+    loggedIn: !!state.currentUser
   }
 }
 

@@ -27,11 +27,13 @@ class TransactionsList extends Component {
           </thead>
           <tbody>
         { this.props.transactions.map((transaction) =>
-            <tr key={transaction.id}>
-             <td>{transaction.title}</td> <td>{transaction.description}</td> <td>${transaction.amount}</td>
-             <td>{transaction.user.user_name}</td>
-             <td><button onClick={this.deleteTransaction.bind(this, transaction.id)}>Delete</button></td>
-            </tr>)}
+            <tr key={ transaction.id }>
+              <td>{ transaction.title }</td>
+              <td>{ transaction.description }</td>
+              <td>${ parseFloat(transaction.amount).toFixed(2) }</td>
+              <td>{ transaction.user.user_name }</td>
+              <td><button onClick={ this.deleteTransaction.bind(this, transaction.id )}>Delete</button></td>
+            </tr>) }
           </tbody>
         </table>
       </div>

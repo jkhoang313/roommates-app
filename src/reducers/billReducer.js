@@ -3,14 +3,12 @@ export default function(state={}, action) {
     case "FETCH_BILL":
       return action.payload
     case "CREATE_TRANSACTION":
-      var addTotal = 0.0
-      action.payload.forEach((object) => addTotal+=parseFloat(object.amount, 10))
-      return Object.assign({}, state, {total: addTotal.toFixed(2)})
-      // make faster
+      let addedTotal = parseFloat(state.total, 10)+parseFloat(action.payload.amount, 10)
+      return Object.assign({}, state, {total: addedTotal})
     case "DELETE_TRANSACTION":
-      let newTotal = 0.0
+      let newTotal = 0
       action.payload.forEach((object) => newTotal+=parseFloat(object.amount, 10))
-      return Object.assign({}, state, {total: newTotal.toFixed(2)})
+      return Object.assign({}, state, {total: newTotal})
     case "LOG_OUT":
       return {}
     default:

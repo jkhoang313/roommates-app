@@ -1,24 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { fetchMessages } from '../actions'
 import ChatMessage from './ChatMessage'
 
 class ChatMessageList extends Component {
-
   componentDidMount(){
     this.props.fetchMessages()
   }
 
   render(){
-    const messages = this.props.messages
     return (
       <div>
         <ul className="left-align">
-          {messages.map(
-            (message) =>
-              <ChatMessage
-                message={message.message_content}
-                by={message.user.image_url} key={message.id}/>)}
+          { this.props.messages.map((message) =>
+            <ChatMessage
+              message={ message.content }
+              senderName={ message.user.user_name }
+              senderPic={ message.user.image_url }
+              key={ message.id }/>) }
         </ul>
       </div>
     )
@@ -32,12 +32,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return {
-    fetchMessages: function(){
-      let action = fetchMessages()
-      dispatch( action )
-    }
-  }
+  return bindActionCreators({ fetchMessages }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChatMessageList)
