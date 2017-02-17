@@ -26,5 +26,8 @@ export default {
  },
  updateHome: function(homeId, homeObject){
    return axios.patch(`/homes/${homeId}`, homeObject).then(data => data.data)
+ },
+ kickMember: function(homeId, memberId){
+   return axios.patch(`/homes/${homeId}/kick/${memberId}`).then(data => data.data)
  }
 }

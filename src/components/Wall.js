@@ -3,6 +3,7 @@ import Feed from './Feed'
 import Chat from './Chat'
 import Bill from './Bill'
 import Calendar from './Calendar'
+import HouseRules from './HouseRules'
 import EditProfile from './EditProfile'
 import EditHome from './EditHome'
 
@@ -26,6 +27,7 @@ export default class Wall extends Component {
     })
   }
 
+
   goToChat() {
     this.setState({
       currentPage: < Chat />
@@ -41,6 +43,12 @@ export default class Wall extends Component {
   goToCalendar() {
     this.setState({
       currentPage: < Calendar />
+    })
+  }
+
+  goToHouseRules() {
+    this.setState({
+      currentPage: < HouseRules />
     })
   }
 
@@ -64,6 +72,7 @@ export default class Wall extends Component {
         <button onClick={this.goToChat.bind(this)}>Chat</button>
         <button onClick={this.goToBill.bind(this)}>Bill</button>
         <button onClick={this.goToCalendar.bind(this)}>Calendar</button>
+        <button onClick={this.goToHouseRules.bind(this)}>House Rules</button>
         <button onClick={this.editProfile.bind(this)}>Edit Profile</button>
         <button onClick={this.editHome.bind(this)}>Edit Home</button>
         { this.state.currentPage }

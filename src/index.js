@@ -1,7 +1,7 @@
 import './index.css'
-import 'materialize-css/bin/materialize.css'
+// import 'jquery/dist/jquery.js'
 import 'materialize-css/bin/materialize.js'
-import 'jquery/dist/jquery.js'
+import 'materialize-css/bin/materialize.css'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
