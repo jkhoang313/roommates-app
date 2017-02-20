@@ -18,7 +18,7 @@ class ChatMessageList extends Component {
               message={ message.content }
               senderName={ message.user.user_name }
               senderPic={ message.user.image_url }
-              sentAt={ message.created_at}
+              sentAt={ message.sent_at}
               key={ message.id }/>) }
         </ul>
       </div>

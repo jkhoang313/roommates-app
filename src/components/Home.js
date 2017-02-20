@@ -36,7 +36,7 @@ class Home extends Component {
                 <img src={member.image_url} className="circle thumbnail" alt={member.first_name}/>
                  { member.user_name }
                 <br></br>
-                <button onClick={this.kickMember} id={member.id}>Kick</button>
+                { member.id !== this.props.currentUser.id ? <button onClick={this.kickMember} id={member.id}>Kick</button> : null }
               </li>
             }) }
           </ul>,
@@ -49,6 +49,7 @@ class Home extends Component {
 function mapStateToProps(state) {
   return {
     existingHome: !state.home,
+    currentUser: state.currentUser,
     id: state.home.id,
     name: state.home.name,
     address: state.home.address,

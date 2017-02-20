@@ -3,12 +3,11 @@ export default function(state={}, action) {
     case "FETCH_BILL":
       return action.payload
     case "CREATE_TRANSACTION":
-      let addedTotal = parseFloat(state.total, 10)+parseFloat(action.payload.amount, 10)
-      return Object.assign({}, state, {total: addedTotal})
+      return action.payload.bill
     case "DELETE_TRANSACTION":
-      let newTotal = 0
-      action.payload.forEach((object) => newTotal+=parseFloat(object.amount, 10))
-      return Object.assign({}, state, {total: newTotal})
+      return action.payload[0].bill
+    case "UPDATE_HOME":
+      return action.payload.bill
     case "LOG_OUT":
       return {}
     default:

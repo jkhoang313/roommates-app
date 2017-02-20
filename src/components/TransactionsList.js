@@ -32,7 +32,8 @@ class TransactionsList extends Component {
               <td>{ transaction.description }</td>
               <td>${ parseFloat(transaction.amount).toFixed(2) }</td>
               <td>{ transaction.user.user_name }</td>
-              <td><button onClick={ this.deleteTransaction.bind(this, transaction.id )}>Delete</button></td>
+              <td>{ this.props.currentUser.id === transaction.user.id ?
+<button onClick={ this.deleteTransaction.bind(this, transaction.id )}>Delete</button> : null }</td>
             </tr>) }
           </tbody>
         </table>
@@ -44,6 +45,7 @@ class TransactionsList extends Component {
 
 function mapStateToProps(state) {
   return {
+    currentUser: state.currentUser,
     transactions: state.transactions
   }
 }

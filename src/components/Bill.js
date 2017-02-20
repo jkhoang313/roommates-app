@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchBill } from '../actions'
+import MemberBalancesList from './MemberBalancesList'
 import TransactionForm from './TransactionForm'
 import TransactionsList from './TransactionsList'
 
@@ -16,9 +17,9 @@ class Bill extends Component {
         {this.props.isRendering ? <p>Loading</p> :
             [<p key="bill">Bill</p>,
             <p key="total">Total Bill: ${ parseFloat(this.props.billInfo.total, 10).toFixed(2) }</p>,
-            <p key="split">Each person owes: ${ (this.props.billInfo.total/this.props.billInfo.users.length).toFixed(2) }</p>,
-            < TransactionForm key="tranaction-form"/>,
-            < TransactionsList key="transaction-list"/>]}
+            < MemberBalancesList key="member-balances-list"/>,
+            < TransactionForm key="tranaction-form" />,
+            < TransactionsList key="transaction-list" />]}
       </div>
     )
   }
@@ -27,7 +28,8 @@ class Bill extends Component {
 function mapStateToProps(state) {
   return {
     isRendering: !state.bill.id,
-    billInfo: state.bill
+    billInfo: state.bill,
+    users: state.bill.users
   }
 }
 

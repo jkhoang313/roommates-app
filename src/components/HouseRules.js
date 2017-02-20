@@ -14,7 +14,7 @@ class HouseRules extends Component {
   submitForm(event) {
     event.preventDefault()
     const home = {
-      rules: this.state.houseRules
+      rules: this.state.houseRules.trim()
     }
     this.setState({
       houseRules: this.state.houseRules
@@ -33,9 +33,7 @@ class HouseRules extends Component {
       <div>
         <p>House Rules</p>
         <ol className="left-align collection">
-          { this.props.rules.split("\n").map((rule, index) => {
-            return <li className="collection-item" key={index}>{rule}</li>
-          }) }
+          { this.props.rules.split("\n").map((rule, index) => <li className="collection-item" key={index}>{rule}</li> )}
         </ol>
         <br></br>
         <form id="rules" onSubmit={ this.submitForm.bind(this) }>
@@ -53,7 +51,7 @@ class HouseRules extends Component {
 function mapStateToProps(state) {
   return {
     id: state.home.id,
-    rules: state.home.rules.trim() || []
+    rules: state.home.rules || ""
   }
 }
 

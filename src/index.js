@@ -1,5 +1,5 @@
 import './index.css'
-// import 'jquery/dist/jquery.js'
+import 'jquery/dist/jquery.js'
 import 'materialize-css/bin/materialize.js'
 import 'materialize-css/bin/materialize.css'
 

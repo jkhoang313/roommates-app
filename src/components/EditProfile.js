@@ -58,7 +58,7 @@ class EditProfile extends Component {
             <input type="text" id="image-url" className="validate" value={ this.state.imageURL } onChange={ (event) => this.setState({ imageURL: event.target.value }) }/>
             <label htmlFor="image-url" className="active">Image URL</label>
           </div>
-          <input type="submit" className="btn"/>
+          <input type="submit" className="btn" value="Save"/>
           <button className="btn" onClick={this.props.goToWall}>Cancel</button>
         </form>
       </div>
