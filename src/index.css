@@ -75,9 +75,9 @@ input#charge-amount {
   font-size: 10px;
 }
 
-.main-row {
+/*.main-row {
   background-color: #EEEEEE;
-}
+}*/
 
 div.collapsible-body {
   padding: 5px;
@@ -95,4 +95,8 @@ div.collapsible-body {
 div.container {
   margin: 50px 50px 50px 50px;
   width: 90%;
+}
+
+table {
+  font-size: 9px;
 }

@@ -14,9 +14,9 @@ class TransactionsList extends Component {
 
   render() {
     return (
-      <div className="left-align col s7">
+      <div className="left-align col s8">
         <h4>Transactions</h4>
-        <table className="bordered">
+        <table className="bordered" width="200">
           <thead>
             <tr>
               <th>Title</th>

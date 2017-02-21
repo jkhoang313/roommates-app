@@ -53,8 +53,8 @@ class TransactionForm extends Component {
 
   render() {
     return (
-      <div className="left-align col s3 offset-s1">
-        <h4>Add A Transaction</h4>
+      <div className="left-align col s3">
+        <h4>Add Transaction</h4>
         <Row>
           <Input type='switch' value='1' offLabel="Expense" onLabel="Payment"  onChange={this.changeSwitch}/>
         </Row>
