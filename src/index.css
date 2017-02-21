@@ -32,6 +32,7 @@ p.false {
 
 input#charge-amount {
   text-align: right;
+}
 
 #selectSubmit {
   margin-top: 18px;
