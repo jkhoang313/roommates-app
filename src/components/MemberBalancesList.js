@@ -4,17 +4,18 @@ import { connect } from 'react-redux'
 class MemberBalancesList extends Component {
   render() {
     return (
-      <div className="col s12">
+      <div className="col s11">
         <div className="row">
           { this.props.users.map((user) => {
-            return <div className="card horizontal col s3" key={ user.user_name }>
-              <div className="card-image">
-                <img src={ user.image_url } className="card-image" alt={ user.user_name }/>
+            return <div className="card horizontal col s3 green lighten-4" key={ user.user_name }>
+              <div className="card-image center-align">
+                <img src={ user.image_url } className="card-image circle" alt={ user.user_name }/>
                 <br></br>
-                <span><u>{ user.user_name }</u></span>
+                <b>{ user.user_name }</b>
               </div>
-              <div className="card-stacked">
-                <span>Balance</span>
+              <div className="card-stacked center-align">
+                <br></br>
+                <u>Balance</u>
                 <p className={ user.balance < 0 }>{ user.balance*-1 }</p>
               </div>
             </div>

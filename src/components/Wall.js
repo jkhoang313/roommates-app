@@ -69,7 +69,8 @@ export default class Wall extends Component {
 
   render() {
     return (
-      <div className="center tabs-list">
+      <div>
+        { this.props.children }
         {/* <div className="row">
           <div className="col s12">
             <ul className="tabs z-depth-1">

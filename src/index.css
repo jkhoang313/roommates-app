@@ -14,10 +14,15 @@ div.card.horizontal.col.s3 {
   height: 180px;
   padding: 0px;
   border: 5px;
+  border-radius: 15px;
 }
 
 .card-image {
   height: 60%;
+}
+
+.card.horizontal .card-image img.card-image {
+  border-radius: 15px;
 }
 
 p.true {
@@ -87,5 +92,7 @@ div.collapsible-body {
   background-color: #eeeeee;
 }
 
-.event-item {
+div.container {
+  margin: 50px 50px 50px 50px;
+  width: 90%;
 }

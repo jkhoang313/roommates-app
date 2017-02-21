@@ -53,7 +53,7 @@ class TransactionForm extends Component {
 
   render() {
     return (
-      <div className="left-align col s4">
+      <div className="left-align col s3 offset-s1">
         <h4>Add A Transaction</h4>
         <Row>
           <Input type='switch' value='1' offLabel="Expense" onLabel="Payment"  onChange={this.changeSwitch}/>
@@ -74,7 +74,7 @@ class TransactionForm extends Component {
                 className="validate"
                 value={ this.state.description }
                 onChange={ (event) => this.setState({ description: event.target.value }) } />
-              <label htmlFor="transaction_description">Expense Description</label>
+              <label htmlFor="transaction_description">Description</label>
             </div>
             <div className="input-field">
               <input
@@ -83,7 +83,7 @@ class TransactionForm extends Component {
                 value={ this.state.amount }
                 min="0.01" step="0.01"
                 onChange={ (event) => this.setState({ amount: event.target.value }) }/>
-              <label htmlFor="transaction_amount">Expense Amount</label>
+              <label htmlFor="transaction_amount">Amount</label>
             </div>
             <input type="submit" className="btn"/>
           </form>
@@ -103,7 +103,7 @@ class TransactionForm extends Component {
                 className="validate"
                 value={ this.state.description }
                 onChange={ (event) => this.setState({ description: event.target.value }) } />
-              <label htmlFor="payment_description">Payment Description</label>
+              <label htmlFor="payment_description">Description</label>
             </div>
             <div className="input-field">
               <input
@@ -112,7 +112,7 @@ class TransactionForm extends Component {
                 value={ this.state.amount }
                 min="0.01" step="0.01"
                 onChange={ (event) => this.setState({ amount: event.target.value }) }/>
-              <label htmlFor="payment_amount">Payment Amount</label>
+              <label htmlFor="payment_amount">Amount</label>
             </div>
             <p>Payment To:</p>
             { this.props.roommates.map((roommate) => {

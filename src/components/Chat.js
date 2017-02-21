@@ -6,7 +6,7 @@ export default class Chat extends Component {
   render() {
     return (
       <div>
-        <p>Chat</p>
+        <h3>Chat</h3>
         < ChatForm />
         < ChatMessageList />
       </div>

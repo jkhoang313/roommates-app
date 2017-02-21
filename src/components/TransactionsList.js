@@ -14,7 +14,7 @@ class TransactionsList extends Component {
 
   render() {
     return (
-      <div className="left-align col s6 offset-s2">
+      <div className="left-align col s7">
         <h4>Transactions</h4>
         <table className="bordered">
           <thead>
