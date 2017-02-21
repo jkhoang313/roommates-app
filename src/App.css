@@ -31,4 +31,5 @@ img.prof-pic {
 img.thumbnail {
   height: 35px;
   width: 35px;
+  margin-top: 5px;
 }

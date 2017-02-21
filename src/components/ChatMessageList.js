@@ -3,24 +3,27 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchMessages } from '../actions'
 import ChatMessage from './ChatMessage'
+import { Collapsible } from 'react-materialize'
 
 class ChatMessageList extends Component {
+  // make it scrollable?
   componentDidMount(){
     this.props.fetchMessages()
   }
 
   render(){
     return (
-      <div>
-        <ul className="left-align">
+      <div className="left-align">
+        <Collapsible>
           { this.props.messages.map((message) =>
             <ChatMessage
               message={ message.content }
+              currentUserSent={ message.user.id === this.props.currentUser.id }
               senderName={ message.user.user_name }
               senderPic={ message.user.image_url }
               sentAt={ message.sent_at}
               key={ message.id }/>) }
-        </ul>
+          </Collapsible>
       </div>
     )
   }
@@ -28,6 +31,7 @@ class ChatMessageList extends Component {
 
 function mapStateToProps(state) {
   return {
+    currentUser: state.currentUser,
     messages: state.messages
   }
 }

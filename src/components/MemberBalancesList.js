@@ -2,21 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class MemberBalancesList extends Component {
-  // add pay option
-  // error here in debugger
-  // fix state (all of the charges gets updated)
-  constructor(props) {
-    super(props)
-    this.state = {
-      chargeAmount: 0
-    }
-    this.chargeRoommate = this.chargeRoommate.bind(this)
-  }
-
-  chargeRoommate() {
-    // debugger
-  }
-
   render() {
     return (
       <div className="col s12">
@@ -30,13 +15,7 @@ class MemberBalancesList extends Component {
               </div>
               <div className="card-stacked">
                 <span>Balance</span>
-                <p className={ user.balance <= 0 }>{ user.balance*-1 }</p>
-                { user.id !== this.props.currentUser.id ? <form className="charge-roommate" onSubmit={ this.chargeRoommate.bind(this) }>
-                  <label htmlFor="charge-amount">Amount</label>
-                  <input type="number" id="charge-amount" min="0.01" step="0.01" value={ this.state.chargeAmount } onChange={(event) => this.setState({ chargeAmount: event.target.value })}/>
-
-                  <input type="submit" value="Charge"/>
-                </form> : null }
+                <p className={ user.balance < 0 }>{ user.balance*-1 }</p>
               </div>
             </div>
             }

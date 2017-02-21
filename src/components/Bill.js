@@ -16,7 +16,7 @@ class Bill extends Component {
       <div className="row">
         {this.props.isRendering ? <p>Loading</p> :
             [<p key="bill">Bill</p>,
-            <p key="total">Total Bill: ${ parseFloat(this.props.billInfo.total, 10).toFixed(2) }</p>,
+            <p key="total">Amount Spent: ${ parseFloat(this.props.billInfo.total, 10).toFixed(2) }</p>,
             < MemberBalancesList key="member-balances-list"/>,
             < TransactionForm key="tranaction-form" />,
             < TransactionsList key="transaction-list" />]}

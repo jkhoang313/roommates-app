@@ -1,53 +1,53 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { Row, Input } from 'react-materialize'
 import { createTransaction } from '../actions'
 
 class TransactionForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      transactionTitle: "",
-      transactionDescription: "",
-      transactionAmount: "",
-      roommatesCharged: []
+      title: "",
+      description: "",
+      amount: "",
+      paymentType: "Expense",
+      payee: ""
     }
+    this.changeSwitch = this.changeSwitch.bind(this)
+    this.submitTransaction = this.submitTransaction.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    this.submitForm = this.submitForm.bind(this)
   }
 
-  submitForm(event) {
+  submitTransaction(event) {
     event.preventDefault()
     const transaction = {
-      title: this.state.transactionTitle,
-      description: this.state.transactionDescription,
-      amount: this.state.transactionAmount,
-      roommates_charged: this.state.roommatesCharged
+      title: this.state.title,
+      description: this.state.description,
+      amount: this.state.amount,
+      payment_type: this.state.paymentType
     }
+    transaction.payment_type === "Payment" ? Object.assign(transaction, {receiver_id: this.state.payee}) : null
     this.setState({
-      transactionTitle: "",
-      transactionDescription: "",
-      transactionAmount: "",
-      roommatesCharged: []
+      title: "",
+      description: "",
+      amount: "",
+      payee: ""
     })
     this.props.createTransaction(transaction)
   }
 
-  handleChange(event) {
-    var newArray
-    var currentArray = this.state.roommatesCharged
-    if (event.target.checked) {
-      newArray =  currentArray.concat(event.target.value)
-
-    } else {
-      var index = currentArray.indexOf(event.target.value)
-      newArray = currentArray.slice(0, index).concat(currentArray.slice(index+1, currentArray.length))
-      // this.setState({
-      //   roommatesCharged: newArray
-      // })
-    }
+  changeSwitch(event) {
+    var payment_type = event.target.checked ? "Payment" : "Expense"
     this.setState({
-      roommatesCharged: newArray
+      paymentType: payment_type,
+      payee: ""
+    })
+  }
+
+  handleChange(event) {
+    this.setState({
+      payee: event.target.value
     })
   }
 
@@ -55,42 +55,76 @@ class TransactionForm extends Component {
     return (
       <div className="left-align col s4">
         <h4>Add A Transaction</h4>
-        <form onSubmit={ this.submitForm }>
-          <div className="input-field">
-            <input
-              type="text" id="transaction_title"
-              className="validate"
-              value={ this.state.transactionTitle }
-              onChange={ (event) => this.setState({ transactionTitle: event.target.value }) }/>
-            <label htmlFor="transactionTitle">Transaction Title</label>
-          </div>
-          <div className="input-field">
-            <input
-              type="text" id="transaction_description"
-              className="validate"
-              value={ this.state.transactionDescription }
-              onChange={ (event) => this.setState({ transactionDescription: event.target.value }) } />
-            <label htmlFor="transaction_description">Transaction Description</label>
-          </div>
-          <div className="input-field">
-            <input
-              type="number" id="transaction_amount"
-              className="validate"
-              value={ this.state.transactionAmount }
-              min="0.01" step="0.01"
-              onChange={ (event) => this.setState({ transactionAmount: event.target.value }) }/>
-            <label htmlFor="transaction_amount">Transaction Amount</label>
-          </div>
-          <p>Roommates Charged:</p>
-          { this.props.roommates.map((roommate) => {
+        <Row>
+          <Input type='switch' value='1' offLabel="Expense" onLabel="Payment"  onChange={this.changeSwitch}/>
+        </Row>
+        { this.state.paymentType === "Expense" ?
+          <form onSubmit={ this.submitTransaction }>
+            <div className="input-field">
+              <input
+                type="text" id="transaction_title"
+                className="validate"
+                value={ this.state.title }
+                onChange={ (event) => this.setState({ title: event.target.value }) }/>
+              <label htmlFor="transaction_title">For</label>
+            </div>
+            <div className="input-field">
+              <input
+                type="text" id="transaction_description"
+                className="validate"
+                value={ this.state.description }
+                onChange={ (event) => this.setState({ description: event.target.value }) } />
+              <label htmlFor="transaction_description">Expense Description</label>
+            </div>
+            <div className="input-field">
+              <input
+                type="number" id="transaction_amount"
+                className="validate"
+                value={ this.state.amount }
+                min="0.01" step="0.01"
+                onChange={ (event) => this.setState({ amount: event.target.value }) }/>
+              <label htmlFor="transaction_amount">Expense Amount</label>
+            </div>
+            <input type="submit" className="btn"/>
+          </form>
+          :
+          <form onSubmit={ this.submitTransaction }>
+            <div className="input-field">
+              <input
+                type="text" id="payment_title"
+                className="validate"
+                value={ this.state.title }
+                onChange={ (event) => this.setState({ title: event.target.value }) }/>
+              <label htmlFor="payment_title">For</label>
+            </div>
+            <div className="input-field">
+              <input
+                type="text" id="payment_description"
+                className="validate"
+                value={ this.state.description }
+                onChange={ (event) => this.setState({ description: event.target.value }) } />
+              <label htmlFor="payment_description">Payment Description</label>
+            </div>
+            <div className="input-field">
+              <input
+                type="number" id="payment_amount"
+                className="validate"
+                value={ this.state.amount }
+                min="0.01" step="0.01"
+                onChange={ (event) => this.setState({ amount: event.target.value }) }/>
+              <label htmlFor="payment_amount">Payment Amount</label>
+            </div>
+            <p>Payment To:</p>
+            { this.props.roommates.map((roommate) => {
               return roommate.id === this.props.currentUser.id ? null : <p key={ roommate.id }>
-                <input type="checkbox" id={ roommate.user_name } className="filled-in" onChange={ this.handleChange } value={ roommate.id } />
-                <label htmlFor={ roommate.user_name }>{ roommate.user_name }</label>
+                <input type="radio" name="payee" id={ roommate.user_name } className="with-gap" onChange={ this.handleChange } value={ roommate.id } checked={ this.state.payee === (roommate.id).toString() }/>
+                  <label htmlFor={ roommate.user_name }>{ roommate.user_name }</label>
               </p>
-            })
+              })
+            }
+            <input type="submit" className="btn"/>
+          </form>
           }
-          <input type="submit" className="btn"/>
-        </form>
       </div>
     )
   }

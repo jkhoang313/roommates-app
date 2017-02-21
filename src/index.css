@@ -73,3 +73,16 @@ input#charge-amount {
 .main-row {
   background-color: #EEEEEE;
 }
+
+div.collapsible-body {
+  padding: 5px;
+  margin-left: 5px;
+}
+
+.payment {
+  background-color: #bbdefb;
+}
+
+.expense {
+  background-color: #eeeeee;
+}

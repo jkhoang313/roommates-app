@@ -40,7 +40,7 @@ class Home extends Component {
               return <li key={index}>
                 <img src={member.image_url} className="circle thumbnail" alt={member.first_name}/>
                  <span className='profile-info'>  { member.user_name }</span>
-                { member.id !== this.props.currentUser.id ? <Button onClick={this.kickMember} id={member.id}>Kick</Button> : null }
+                { member.id !== this.props.currentUser.id ? <Button onClick={this.kickMember} id={member.id}>Remove</Button> : null }
               </li>
             }) }
           </ul>,

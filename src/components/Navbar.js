@@ -32,7 +32,7 @@ class Navbar extends Component {
             [<li key="1"><Link to="/chat">Chat</Link></li>,
             <li key="2"><Link to="/bill">Bills</Link></li>,
             <li key="3"><Link to="/calendar">Events</Link></li>,
-            <li key="4">{ this.props.userName }</li>,
+            <li key="4">Signed in as { this.props.userName }</li>,
             <li key="5"><Link to="/login" onClick={ this.logOut }>Log Out</Link></li>] :
             [<li key="1"><Link to="/signup" className='profile-info'>Sign Up</Link></li>,
              <li key="2"><Link to="/login" className='profile-info'>Log In</Link></li>] }
