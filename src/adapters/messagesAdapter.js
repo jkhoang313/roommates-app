@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://bunkr-api.herokuapp.com/api/v1'
+axios.defaults.baseURL = 'https://bunkr-api.herokuapp.com/api/v1'
 
 export default {
   fetchMessages: function(){
