@@ -27,16 +27,16 @@ class Home extends Component {
       <div>
         { this.props.existingHome ?
           <p>No home</p> :
-          [<p key="home"><b>Home Name: </b>{ this.props.name }</p>,
-          <p key="address"><b>Address: </b>{ this.props.address }</p>,
+          [<p key="home"><b>Home Name:</b> { this.props.name }</p>,
+          <p key="address"><b>Address:</b> { this.props.address }</p>,
+          <p key="admin"><b>Admin:</b> { this.props.admin.user_name }</p>,
           <p key="members"><b>Members: </b></p>,
           <ul key="members-list">
             { this.props.roommates.map((member, index) => {
               return <li key={index}>
                 <img src={member.image_url} className="circle thumbnail" alt={member.first_name}/>
-                 { member.user_name }
-                <br></br>
-                <button onClick={this.kickMember} id={member.id}>Kick</button>
+                 <span>  { member.user_name }</span>
+                { member.id !== this.props.currentUser.id ? <button onClick={this.kickMember} id={member.id}>Kick</button> : null }
               </li>
             }) }
           </ul>,
@@ -49,9 +49,11 @@ class Home extends Component {
 function mapStateToProps(state) {
   return {
     existingHome: !state.home,
+    currentUser: state.currentUser,
     id: state.home.id,
     name: state.home.name,
     address: state.home.address,
+    admin: state.home.admin,
     roommates: state.home.users || []
   }
 }

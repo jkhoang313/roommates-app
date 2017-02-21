@@ -4,6 +4,35 @@ body {
   font-family: sans-serif;
 }
 
+.float-right {
+  float: right;
+}
+
+div.card.horizontal.col.s3 {
+  height: 180px;
+  padding: 0px;
+  border: 5px;
+}
+
+.card-image {
+  height: 60%;
+}
+
+p.true {
+  color: green;
+}
+
+p.false {
+  color: red;
+}
+
+.charge-roommate {
+  width: 90%;
+}
+
+input#charge-amount {
+  text-align: right;
+
 #selectSubmit {
   margin-top: 18px;
 }

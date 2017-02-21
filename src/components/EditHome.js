@@ -44,7 +44,7 @@ class EditHome extends Component {
               onChange={ (event) => this.setState({ address: event.target.value }) }/>
             <label htmlFor="home_address" className="active">Home Address</label>
           </div>
-          <input type="submit" className="btn"/>
+          <input type="submit" className="btn" value="Save"/>
           <button className="btn" onClick={this.props.goToWall}>Cancel</button>
         </form>
       </div>
