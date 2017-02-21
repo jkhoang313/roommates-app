@@ -26,12 +26,12 @@ class Navbar extends Component {
     return (
       <nav>
         <div className="nav-wrapper blue darken-2">
-          <Link to="/homepage" className="brand-logo left" id="nav-logo">bunkr</Link>
+          <Link to="/" className="brand-logo left" id="nav-logo">bunkr</Link>
           <ul id="nav-mobile" className="right">
           { this.props.currentUser ?
-            [<li key="1"><Link to="/chat">Chat</Link></li>,
-            <li key="2"><Link to="/bill">Bills</Link></li>,
-            <li key="3"><Link to="/calendar">Events</Link></li>,
+            [<li key="1"><Link to="/homepage/chat">Chat</Link></li>,
+            <li key="2"><Link to="/homepage/bill">Bills</Link></li>,
+            <li key="3"><Link to="/homepage/calendar">Events</Link></li>,
             <li key="4">Signed in as { this.props.userName }</li>,
             <li key="5"><Link to="/login" onClick={ this.logOut }>Log Out</Link></li>] :
             [<li key="1"><Link to="/signup" className='profile-info'>Sign Up</Link></li>,

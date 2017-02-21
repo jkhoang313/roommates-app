@@ -14,7 +14,7 @@ class Homepage extends Component {
           { this.props.loggedIn ? [< Profile key="profile"/>, < Home key="home"/>] : <p>Please Log In</p> }
         </div>
         <div className="col s9">
-          { this.props.existingHome ? < Wall /> : < HomeForm /> }
+          { this.props.existingHome ? this.props.children : < HomeForm /> }
         </div>
       </div>
     )
