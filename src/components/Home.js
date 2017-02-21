@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button } from 'react-materialize'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchCurrentHome, removeHome, kickMember } from '../actions'
@@ -27,16 +28,19 @@ class Home extends Component {
       <div>
         { this.props.existingHome ?
           <p>No home</p> :
-          [<p key="home"><b>Home Name:</b> { this.props.name }</p>,
-          <p key="address"><b>Address:</b> { this.props.address }</p>,
-          <p key="admin"><b>Admin:</b> { this.props.admin.user_name }</p>,
-          <p key="members"><b>Members: </b></p>,
+          [<p className='profile-info-header' key='home-header'>Home Name:</p>,
+          <p className='profile-info' key="home"> { this.props.name }</p>,
+          <p className='profile-info-header' key='address-header'>Address:</p>,
+          <p className='profile-info' key="address"> { this.props.address }</p>,
+          <p className='profile-info-header' key='admin-header'>Admin:</p>,
+          <p className='profile-info' key="admin"> { this.props.admin.user_name }</p>,
+          <p className='profile-info' key="members">Members:</p>,
           <ul key="members-list">
             { this.props.roommates.map((member, index) => {
               return <li key={index}>
                 <img src={member.image_url} className="circle thumbnail" alt={member.first_name}/>
-                 <span>  { member.user_name }</span>
-                { member.id !== this.props.currentUser.id ? <button onClick={this.kickMember} id={member.id}>Remove</button> : null }
+                 <span className='profile-info'>  { member.user_name }</span>
+                { member.id !== this.props.currentUser.id ? <Button onClick={this.kickMember} id={member.id}>Remove</Button> : null }
               </li>
             }) }
           </ul>,

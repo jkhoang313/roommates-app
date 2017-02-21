@@ -11,10 +11,10 @@ class Profile extends Component {
   render() {
     return (
       <div>
-        <p><img src={ this.props.imageURL } className="prof-pic" alt={ this.props.firstName }/></p>
-        <p><b>Name:</b> { this.props.firstName } { this.props.lastName}</p>
-        <p><b>Username:</b> { this.props.userName }</p>
-        <p><b>Email:</b> { this.props.email }</p>
+        <p><img src={ this.props.imageURL } className="prof-pic z-depth-1" alt={ this.props.firstName }/></p>
+        <p className='profile-info profile-name'> { this.props.firstName } { this.props.lastName}</p>
+        <p className='profile-info profile-username'> { this.props.userName }</p>
+        <p className='profile-info profile-email'> { this.props.email }</p>
       </div>
     )
   }
