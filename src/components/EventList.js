@@ -1,8 +1,13 @@
-import $ from 'jquery'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchEvents } from '../actions'
+import BigCalendar from 'react-big-calendar';
+import moment from 'moment';
+
+BigCalendar.setLocalizer(
+  BigCalendar.momentLocalizer(moment)
+);
 
 class EventList extends Component {
   componentDidMount(){
@@ -12,8 +17,9 @@ class EventList extends Component {
   render(){
     return (
       <div>
-        {$}
-        <ul className="left-align">
+        <p>hi</p>
+        {/* <p>{ moment() }</p> */}
+        {/* <ul className="left-align">
           { this.props.events.map((event) =>
             <li>
               <ul>
@@ -23,7 +29,7 @@ class EventList extends Component {
               </ul>
             </li>
           )}
-        </ul>
+        </ul> */}
       </div>
     )
   }

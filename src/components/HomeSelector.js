@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button, Row, Input } from 'react-materialize'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchAllHomes, addToHome } from '../actions'
@@ -32,16 +33,31 @@ class HomeSelector extends Component {
     return(
       <div>
         <h3>Join an Existing Home</h3>
-        <p onClick={this.showHomes}>See All Homes</p>
+        <Row>
         <form onSubmit={ this.submitHandler } >
-          <div className='input-field'>
-            <select value={ this.state.value } onChange={ this.handleChange } className='browser-default'>
-              <option value="" disabled defaultValue>Choose a home to join</option>
-              { this.props.homes.map((home) => <option value={ home.id } key={ home.id }>{ home.name }</option>) }
-            </select>
-            <input type='submit' className="btn" value="Join Home"/>
-          </div>
+          <Input
+            s={6}
+            type='select'
+            value={ this.state.value }
+            onChange={ this.handleChange }
+            >
+              <option
+                value=""
+                disabled
+                defaultValue
+                >
+                  Choose a home to join
+                </option>
+              { this.props.homes.map((home) =>
+                <option
+                  value={ home.id }
+                  key={ home.id }>{ home.name }
+                </option>
+              )}
+          </Input>
+          <Button id="selectSubmit" s={6} type='submit'>Select</Button>
         </form>
+      </Row>
       </div>
     )
   }
