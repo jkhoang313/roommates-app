@@ -56,7 +56,7 @@ export default class EventForm extends Component {
 
           <p className='col s6 hide-on-small-only'>Start Date/Time</p>
           <p className='col s6 hide-on-small-only'>End Date/Time</p>
-          
+
           <Input
             type="datetime-local"
             id="startDate"
@@ -75,7 +75,7 @@ export default class EventForm extends Component {
               this.setState({ endDate: event.target.value })} }
             />
 
-          <Button type='submit' m={6} s={12}>
+          <Button type='submit'>
             <Icon>done</Icon>
           </Button>
         </form>

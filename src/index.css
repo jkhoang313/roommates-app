@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Bangers|Rock+Salt');
+
 body {
   margin: 0;
   padding: 0;
@@ -34,6 +36,40 @@ input#charge-amount {
   text-align: right;
 }
 
+.tabs-list {
+  margin-top: 10px;
+}
+
 #selectSubmit {
   margin-top: 18px;
+}
+
+#nav-logo {
+  margin-left: 10px;
+  font-family: 'Rock Salt', cursive;
+}
+
+.profile-info {
+  font-family: 'Bangers', cursive;
+}
+
+.profile-info-header {
+  font-size: 10px;
+  margin-bottom: -20px;
+}
+
+.profile-name {
+  margin-bottom: -10px;
+}
+
+.profile-username {
+  font-size: 10px;
+}
+
+.profile-email {
+  font-size: 10px;
+}
+
+.main-row {
+  background-color: #EEEEEE;
 }

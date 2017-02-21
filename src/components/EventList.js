@@ -17,9 +17,7 @@ class EventList extends Component {
   render(){
     return (
       <div>
-        <p>hi</p>
-        {/* <p>{ moment() }</p> */}
-        {/* <ul className="left-align">
+        <ul className="left-align">
           { this.props.events.map((event) =>
             <li>
               <ul>
@@ -29,7 +27,7 @@ class EventList extends Component {
               </ul>
             </li>
           )}
-        </ul> */}
+        </ul>
       </div>
     )
   }

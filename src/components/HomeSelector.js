@@ -55,7 +55,7 @@ class HomeSelector extends Component {
                 </option>
               )}
           </Input>
-          <Button id="selectSubmit" s={6} type='submit'>Select</Button>
+          <Button id="selectSubmit" type='submit'>Select</Button>
         </form>
       </Row>
       </div>

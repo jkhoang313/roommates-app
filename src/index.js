@@ -2,6 +2,7 @@ import './index.css'
 import 'jquery/dist/jquery.js'
 import 'materialize-css/bin/materialize.js'
 import 'materialize-css/bin/materialize.css'
+import './materialize.css'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
