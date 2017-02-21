@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:3000/api/v1'
+axios.defaults.baseURL = 'http://bunkr-api.herokuapp.com/api/v1'
 import { browserHistory } from 'react-router'
 
 export default {
