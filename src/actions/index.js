@@ -6,7 +6,7 @@ import transactionsAdapter from '../adapters/transactionsAdapter'
 import messagesAdapter from '../adapters/messagesAdapter'
 import eventsAdapter from '../adapters/eventsAdapter'
 
-axios.defaults.baseURL = 'https://bunkr-api.herokuapp.com/api/v1/u'
+axios.defaults.baseURL = 'https://bunkr-api.herokuapp.com/api/v1'
 
 export function createUser(userObject) {
   var response = usersAdapter.createUser(userObject)
