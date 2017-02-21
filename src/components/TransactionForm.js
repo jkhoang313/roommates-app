@@ -5,7 +5,6 @@ import { Row, Input } from 'react-materialize'
 import { createTransaction } from '../actions'
 
 class TransactionForm extends Component {
-  //need to uncheck radio after submit
   constructor(props) {
     super(props)
     this.state = {
@@ -28,26 +27,22 @@ class TransactionForm extends Component {
       amount: this.state.amount,
       payment_type: this.state.paymentType
     }
+    transaction.payment_type === "Payment" ? Object.assign(transaction, {receiver_id: this.state.payee}) : null
     this.setState({
       title: "",
       description: "",
       amount: "",
+      payee: ""
     })
-    transaction.payment_type === "Payment" ? Object.assign(transaction, {receiver_id: this.state.payee}) : null
     this.props.createTransaction(transaction)
   }
 
   changeSwitch(event) {
-    if (event.target.checked) {
-      this.setState({
-        paymentType: "Payment"
-      })
-    } else {
-      this.setState({
-        paymentType: "Expense",
-        payee: ""
-      })
-    }
+    var payment_type = event.target.checked ? "Payment" : "Expense"
+    this.setState({
+      paymentType: payment_type,
+      payee: ""
+    })
   }
 
   handleChange(event) {
@@ -122,7 +117,7 @@ class TransactionForm extends Component {
             <p>Payment To:</p>
             { this.props.roommates.map((roommate) => {
               return roommate.id === this.props.currentUser.id ? null : <p key={ roommate.id }>
-                <input type="radio" name="payee" id={ roommate.user_name } className="with-gap" onChange={ this.handleChange } value={ roommate.id } />
+                <input type="radio" name="payee" id={ roommate.user_name } className="with-gap" onChange={ this.handleChange } value={ roommate.id } checked={ this.state.payee === (roommate.id).toString() }/>
                   <label htmlFor={ roommate.user_name }>{ roommate.user_name }</label>
               </p>
               })

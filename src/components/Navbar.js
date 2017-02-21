@@ -29,7 +29,7 @@ class Navbar extends Component {
           <Link to="/homepage" className="brand-logo left">Roommates</Link>
           <ul id="nav-mobile" className="right">
           { this.props.currentUser ?
-            [ <li key="1">{ this.props.userName }</li>,
+            [ <li key="1">Signed in as { this.props.userName }</li>,
               <li key="2"><Link to="/login" onClick={ this.logOut }>Log Out</Link></li>] :
             [ <li key="1"><Link to="/signup">Sign Up</Link></li>,
              <li key="2"><Link to="/login">Log In</Link></li>] }
