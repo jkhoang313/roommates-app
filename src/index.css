@@ -37,3 +37,16 @@ input#charge-amount {
 #selectSubmit {
   margin-top: 18px;
 }
+
+div.collapsible-body {
+  padding: 5px;
+  margin-left: 5px;
+}
+
+.payment {
+  background-color: #bbdefb;
+}
+
+.expense {
+  background-color: #eeeeee;
+}

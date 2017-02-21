@@ -36,7 +36,7 @@ class Home extends Component {
               return <li key={index}>
                 <img src={member.image_url} className="circle thumbnail" alt={member.first_name}/>
                  <span>  { member.user_name }</span>
-                { member.id !== this.props.currentUser.id ? <button onClick={this.kickMember} id={member.id}>Kick</button> : null }
+                { member.id !== this.props.currentUser.id ? <button onClick={this.kickMember} id={member.id}>Remove</button> : null }
               </li>
             }) }
           </ul>,

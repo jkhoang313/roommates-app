@@ -1,11 +1,11 @@
 import React from 'react'
+import { CollapsibleItem } from 'react-materialize'
 
 const ChatMessage = (props) => {
-  // make collapsible
   return (
-    <li className="avatar">
-      <img  className="circle thumbnail" src={ props.senderPic } alt={ props.senderName }/> { props.message } <span className="float-right">{ props.sentAt }</span>
-    </li>
+    <CollapsibleItem header={ <span><img  className="circle thumbnail" src={ props.senderPic } alt={ props.senderName }/> <span>{ props.message}</span></span> } className={ props.currentUserSent ? "right-align" : "left-align"}>
+      <span><b>Sent:</b> { props.sentAt } by { props.senderName }</span>
+    </CollapsibleItem>
   )
 }
 
