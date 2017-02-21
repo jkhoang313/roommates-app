@@ -3,7 +3,7 @@ export default function(state=[], action){
     case 'FETCH_EVENTS':
       return action.payload
     case 'ADD_EVENT':
-      return [...state, action.payload]
+      return [action.payload, ...state]
     case 'LOG_OUT':
       return []
     default:

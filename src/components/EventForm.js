@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Icon, Input } from 'react-materialize'
+import { Button, Icon, Input, Col, Row } from 'react-materialize'
 import { addEvent } from '../actions'
 
 export default class EventForm extends Component {
@@ -37,7 +37,7 @@ export default class EventForm extends Component {
 
   render(){
     return(
-      <div>
+      <div className='row'>
         <form onSubmit={this.submitHandler.bind(this)}>
           <Input
             m={6}
@@ -49,7 +49,6 @@ export default class EventForm extends Component {
           <Input
             m={6}
             label="Event Description"
-            className="materialize-textarea"
             value={ this.state.description }
             onChange={ (event) => this.setState({ description: event.target.value }) }
           />
@@ -75,7 +74,7 @@ export default class EventForm extends Component {
               this.setState({ endDate: event.target.value })} }
             />
 
-          <Button type='submit'>
+          <Button className='col s2' type='submit'>
             <Icon>done</Icon>
           </Button>
         </form>
