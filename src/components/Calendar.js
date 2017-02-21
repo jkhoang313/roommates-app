@@ -7,7 +7,7 @@ export default class Calendar extends Component {
     return (
       <div>
         <EventList />
-        <p>Calendar</p>
+        <p>Add an event:</p>
         <EventForm />
       </div>
     )
