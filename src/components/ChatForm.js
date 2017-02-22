@@ -29,19 +29,16 @@ class ChatForm extends Component {
 
   render(){
     return (
-      <div>
-        <form
-          onSubmit={this.handleSubmit}>
-          <div className="input-field">
-          <input
-            type='text'
-            id='message-field'
-            value={this.state.chatter}
-            onChange={this.handleChange} />
-          <label htmlFor="message-field">Enter a message</label>
-          </div>
-        </form>
-      </div>
+      <form onSubmit={this.handleSubmit}>
+        <div className="input-field">
+        <input
+          type='text'
+          id='message-field'
+          value={this.state.chatter}
+          onChange={this.handleChange} />
+        <label htmlFor="message-field">Enter a message</label>
+        </div>
+      </form>
     )
   }
 }

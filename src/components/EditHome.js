@@ -25,28 +25,33 @@ class EditHome extends Component {
 
   render() {
     return (
-      <div>
-        <p>Edit Home</p>
-        <form onSubmit={ this.submitForm } className="left-align">
-          <div className="input-field">
-            <input
-              type="text" id="home_name"
-              className="validate"
-              value={ this.state.name }
-              onChange={ (event) => this.setState({ name: event.target.value }) }/>
-            <label htmlFor="home_name" className="active">Home Name</label>
+      <div className="container">
+        <div className="row">
+          <div className="col s12 z-depth-2">
+            <h4>Edit Home</h4>
+            <form onSubmit={ this.submitForm } className="left-align">
+              <div className="input-field">
+                <input
+                  type="text" id="home_name"
+                  className="validate"
+                  value={ this.state.name }
+                  onChange={ (event) => this.setState({ name: event.target.value }) }/>
+                <label htmlFor="home_name" className="active">Home Name</label>
+              </div>
+              <div className="input-field">
+                <input
+                  type="text" id="home_address"
+                  className="validate"
+                  value={ this.state.address }
+                  onChange={ (event) => this.setState({ address: event.target.value }) }/>
+                <label htmlFor="home_address" className="active">Home Address</label>
+              </div>
+              <input type="submit" className="btn" value="Save"/>
+              <button className="btn" onClick={this.props.goToWall}>Cancel</button>
+            </form>
+            <br></br>
           </div>
-          <div className="input-field">
-            <input
-              type="text" id="home_address"
-              className="validate"
-              value={ this.state.address }
-              onChange={ (event) => this.setState({ address: event.target.value }) }/>
-            <label htmlFor="home_address" className="active">Home Address</label>
-          </div>
-          <input type="submit" className="btn" value="Save"/>
-          <button className="btn" onClick={this.props.goToWall}>Cancel</button>
-        </form>
+        </div>
       </div>
     )
   }

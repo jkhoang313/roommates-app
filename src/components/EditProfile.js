@@ -32,35 +32,39 @@ class EditProfile extends Component {
   }
 
   render() {
-    //doesn't update members on home
     //change password form
     return (
-      <div>
-        <p>Edit Profile</p>
-        <form className="left-align" onSubmit={this.submitForm}>
-          <div className="input-field">
-            <input type="text" id="first_name" value={ this.state.firstName } onChange={ (event) => this.setState({ firstName: event.target.value }) }/>
-            <label htmlFor="first_name" className="active">First Name</label>
+      <div className="container">
+        <div className="row">
+          <div className="col s12 z-depth-2">
+            <h4>Edit Profile</h4>
+            <form className="left-align" onSubmit={this.submitForm}>
+              <div className="input-field">
+                <input type="text" id="first_name" value={ this.state.firstName } onChange={ (event) => this.setState({ firstName: event.target.value }) }/>
+                <label htmlFor="first_name" className="active">First Name</label>
+              </div>
+              <div className="input-field">
+                <input type="text" id="last_name" className="validate" value={ this.state.lastName } onChange={ (event) => this.setState({ lastName: event.target.value }) }/>
+                <label htmlFor="last_name" className="active">Last Name</label>
+              </div>
+              <div className="input-field">
+                <input type="text" id="user_name" className="validate" value={ this.state.userName } onChange={ (event) => this.setState({ userName: event.target.value }) }/>
+                <label htmlFor="user_name" className="active">User Name</label>
+              </div>
+              <div className="input-field">
+                <input type="text" id="email" className="validate" value={ this.state.email } onChange={ (event) => this.setState({ email: event.target.value }) }/>
+                <label htmlFor="email" className="active">Email Address</label>
+              </div>
+              <div className="input-field">
+                <input type="text" id="image-url" className="validate" value={ this.state.imageURL } onChange={ (event) => this.setState({ imageURL: event.target.value }) }/>
+                <label htmlFor="image-url" className="active">Image URL</label>
+              </div>
+              <input type="submit" className="btn" value="Save"/>
+              <button className="btn" onClick={this.props.goToWall}>Cancel</button>
+            </form>
+            <br></br>
           </div>
-          <div className="input-field">
-            <input type="text" id="last_name" className="validate" value={ this.state.lastName } onChange={ (event) => this.setState({ lastName: event.target.value }) }/>
-            <label htmlFor="last_name" className="active">Last Name</label>
-          </div>
-          <div className="input-field">
-            <input type="text" id="user_name" className="validate" value={ this.state.userName } onChange={ (event) => this.setState({ userName: event.target.value }) }/>
-            <label htmlFor="user_name" className="active">User Name</label>
-          </div>
-          <div className="input-field">
-            <input type="text" id="email" className="validate" value={ this.state.email } onChange={ (event) => this.setState({ email: event.target.value }) }/>
-            <label htmlFor="email" className="active">Email Address</label>
-          </div>
-          <div className="input-field">
-            <input type="text" id="image-url" className="validate" value={ this.state.imageURL } onChange={ (event) => this.setState({ imageURL: event.target.value }) }/>
-            <label htmlFor="image-url" className="active">Image URL</label>
-          </div>
-          <input type="submit" className="btn" value="Save"/>
-          <button className="btn" onClick={this.props.goToWall}>Cancel</button>
-        </form>
+        </div>
       </div>
     )
   }

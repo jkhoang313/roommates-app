@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Icon, Input, Col, Row } from 'react-materialize'
+import { Button, Icon, Input } from 'react-materialize'
 import { addEvent } from '../actions'
 
 export default class EventForm extends Component {
@@ -37,47 +37,50 @@ export default class EventForm extends Component {
 
   render(){
     return(
-      <div className='row'>
-        <form onSubmit={this.submitHandler.bind(this)}>
-          <Input
-            m={6}
-            label="Event Title"
-            value={ this.state.title }
-            onChange={ (event) => this.setState({ title: event.target.value }) }
-          />
-
-          <Input
-            m={6}
-            label="Event Description"
-            value={ this.state.description }
-            onChange={ (event) => this.setState({ description: event.target.value }) }
-          />
-
-          <p className='col s6 hide-on-small-only'>Start Date/Time</p>
-          <p className='col s6 hide-on-small-only'>End Date/Time</p>
-
-          <Input
-            type="datetime-local"
-            id="startDate"
-            m={6}
-            value={ this.state.startDate}
-            onChange={ (event) => {
-              this.setState({ startDate: event.target.value })} }
+      <div className="row">
+        <div className="col s11 z-depth-2">
+          <h4 className="center-align">Add an event</h4>
+          <form onSubmit={this.submitHandler.bind(this)}>
+            <Input
+              m={6}
+              label="Event Title"
+              value={ this.state.title }
+              onChange={ (event) => this.setState({ title: event.target.value }) }
             />
 
-          <Input
-            type="datetime-local"
-            id="endDate"
-            m={6}
-            value={ this.state.endDate }
-            onChange={ (event) => {
-              this.setState({ endDate: event.target.value })} }
+            <Input
+              m={6}
+              label="Event Description"
+              value={ this.state.description }
+              onChange={ (event) => this.setState({ description: event.target.value }) }
             />
 
-          <Button className='col s2' type='submit'>
-            <Icon>done</Icon>
-          </Button>
-        </form>
+            <Input
+              type="datetime-local"
+              id="startDate"
+              m={6}
+              value={ this.state.startDate}
+              onChange={ (event) => {
+                this.setState({ startDate: event.target.value })} }
+              />
+
+            <Input
+              type="datetime-local"
+              id="endDate"
+              m={6}
+              value={ this.state.endDate }
+              onChange={ (event) => {
+                this.setState({ endDate: event.target.value })} }
+              />
+
+            <label className='col s6 hide-on-small-only'>Start Date/Time</label>
+            <label className='col s6 hide-on-small-only'>End Date/Time</label>
+
+            <Button className='col s2 small-margin-vertical' type='submit'>
+              <Icon>done</Icon>
+            </Button>
+          </form>
+        </div>
       </div>
     )
   }

@@ -24,19 +24,24 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div>
-      <h2>Login Page</h2>
-        <form onSubmit={ this.submitForm }>
-          <div className="input-field">
-            <input type="text" id="user_name" className="validate" value={ this.state.userName } onChange={ (event) => this.setState({ userName: event.target.value }) }/>
-            <label htmlFor="user_name">User Name</label>
+      <div className="container">
+        <div className="row">
+          <div className="col s12 z-depth-2">
+            <h2>Login Page</h2>
+            <form onSubmit={ this.submitForm }>
+              <div className="input-field">
+                <input type="text" id="user_name" className="validate" value={ this.state.userName } onChange={ (event) => this.setState({ userName: event.target.value }) }/>
+                <label htmlFor="user_name">User Name</label>
+              </div>
+              <div className="input-field">
+                <input type="password" id="password" className="validate" value={ this.state.password } onChange={ (event) => this.setState({ password: event.target.value }) }/>
+                <label htmlFor="password">Password</label>
+              </div>
+              <input type="submit" className="btn"/>
+            </form>
+            <br></br>
           </div>
-          <div className="input-field">
-            <input type="password" id="password" className="validate" value={ this.state.password } onChange={ (event) => this.setState({ password: event.target.value }) }/>
-            <label htmlFor="password">Password</label>
-          </div>
-          <input type="submit" className="btn"/>
-        </form>
+        </div>
       </div>
     )
   }

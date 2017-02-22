@@ -21,13 +21,13 @@ class TransactionForm extends Component {
 
   submitTransaction(event) {
     event.preventDefault()
-    const transaction = {
+    var transaction = {
       title: this.state.title,
       description: this.state.description,
       amount: this.state.amount,
       payment_type: this.state.paymentType
     }
-    transaction.payment_type === "Payment" ? Object.assign(transaction, {receiver_id: this.state.payee}) : null
+    transaction = (transaction.payment_type === "Payment") ? Object.assign({}, transaction, {receiver_id: this.state.payee}) : transaction
     this.setState({
       title: "",
       description: "",
@@ -53,78 +53,83 @@ class TransactionForm extends Component {
 
   render() {
     return (
-      <div className="left-align col s3 offset-s1">
-        <h4>Add A Transaction</h4>
-        <Row>
-          <Input type='switch' value='1' offLabel="Expense" onLabel="Payment"  onChange={this.changeSwitch}/>
-        </Row>
-        { this.state.paymentType === "Expense" ?
-          <form onSubmit={ this.submitTransaction }>
-            <div className="input-field">
-              <input
-                type="text" id="transaction_title"
-                className="validate"
-                value={ this.state.title }
-                onChange={ (event) => this.setState({ title: event.target.value }) }/>
-              <label htmlFor="transaction_title">For</label>
-            </div>
-            <div className="input-field">
-              <input
-                type="text" id="transaction_description"
-                className="validate"
-                value={ this.state.description }
-                onChange={ (event) => this.setState({ description: event.target.value }) } />
-              <label htmlFor="transaction_description">Description</label>
-            </div>
-            <div className="input-field">
-              <input
-                type="number" id="transaction_amount"
-                className="validate"
-                value={ this.state.amount }
-                min="0.01" step="0.01"
-                onChange={ (event) => this.setState({ amount: event.target.value }) }/>
-              <label htmlFor="transaction_amount">Amount</label>
-            </div>
-            <input type="submit" className="btn"/>
-          </form>
-          :
-          <form onSubmit={ this.submitTransaction }>
-            <div className="input-field">
-              <input
-                type="text" id="payment_title"
-                className="validate"
-                value={ this.state.title }
-                onChange={ (event) => this.setState({ title: event.target.value }) }/>
-              <label htmlFor="payment_title">For</label>
-            </div>
-            <div className="input-field">
-              <input
-                type="text" id="payment_description"
-                className="validate"
-                value={ this.state.description }
-                onChange={ (event) => this.setState({ description: event.target.value }) } />
-              <label htmlFor="payment_description">Description</label>
-            </div>
-            <div className="input-field">
-              <input
-                type="number" id="payment_amount"
-                className="validate"
-                value={ this.state.amount }
-                min="0.01" step="0.01"
-                onChange={ (event) => this.setState({ amount: event.target.value }) }/>
-              <label htmlFor="payment_amount">Amount</label>
-            </div>
-            <p>Payment To:</p>
-            { this.props.roommates.map((roommate) => {
-              return roommate.id === this.props.currentUser.id ? null : <p key={ roommate.id }>
-                <input type="radio" name="payee" id={ roommate.user_name } className="with-gap" onChange={ this.handleChange } value={ roommate.id } checked={ this.state.payee === (roommate.id).toString() }/>
-                  <label htmlFor={ roommate.user_name }>{ roommate.user_name }</label>
-              </p>
-              })
+      <div className="col s3">
+        <div className="row">
+          <div className="col s11 offset-s1 z-depth-2">
+          <h5 className="center-align">Add Transaction</h5>
+          <Row className="center-align">
+            <Input type='switch' value='1' offLabel="Expense" onLabel="Payment" onChange={this.changeSwitch} />
+          </Row>
+          { this.state.paymentType === "Expense" ?
+            <form onSubmit={ this.submitTransaction }>
+              <div className="input-field">
+                <input
+                  type="text" id="transaction_title"
+                  className="validate"
+                  value={ this.state.title }
+                  onChange={ (event) => this.setState({ title: event.target.value }) }/>
+                <label htmlFor="transaction_title">For</label>
+              </div>
+              <div className="input-field">
+                <input
+                  type="text" id="transaction_description"
+                  className="validate"
+                  value={ this.state.description }
+                  onChange={ (event) => this.setState({ description: event.target.value }) } />
+                <label htmlFor="transaction_description">Description</label>
+              </div>
+              <div className="input-field">
+                <input
+                  type="number" id="transaction_amount"
+                  className="validate"
+                  value={ this.state.amount }
+                  min="0.01" step="0.01"
+                  onChange={ (event) => this.setState({ amount: event.target.value }) }/>
+                <label htmlFor="transaction_amount">Amount</label>
+              </div>
+              <input type="submit" className="btn"/>
+            </form>
+            :
+            <form onSubmit={ this.submitTransaction }>
+              <div className="input-field">
+                <input
+                  type="text" id="payment_title"
+                  className="validate"
+                  value={ this.state.title }
+                  onChange={ (event) => this.setState({ title: event.target.value }) }/>
+                <label htmlFor="payment_title">For</label>
+              </div>
+              <div className="input-field">
+                <input
+                  type="text" id="payment_description"
+                  className="validate"
+                  value={ this.state.description }
+                  onChange={ (event) => this.setState({ description: event.target.value }) } />
+                <label htmlFor="payment_description">Description</label>
+              </div>
+              <div className="input-field">
+                <input
+                  type="number" id="payment_amount"
+                  className="validate"
+                  value={ this.state.amount }
+                  min="0.01" step="0.01"
+                  onChange={ (event) => this.setState({ amount: event.target.value }) }/>
+                <label htmlFor="payment_amount">Amount</label>
+              </div>
+              <p>Payment To:</p>
+              { this.props.roommates.map((roommate) => {
+                return roommate.id === this.props.currentUser.id ? null : <p key={ roommate.id }>
+                  <input type="radio" name="payee" id={ roommate.user_name } className="with-gap" onChange={ this.handleChange } value={ roommate.id } checked={ this.state.payee === (roommate.id).toString() }/>
+                    <label htmlFor={ roommate.user_name }>{ roommate.user_name }</label>
+                </p>
+                })
+              }
+              <input type="submit" className="btn"/>
+            </form>
             }
-            <input type="submit" className="btn"/>
-          </form>
-          }
+            <br></br>
+          </div>
+        </div>
       </div>
     )
   }

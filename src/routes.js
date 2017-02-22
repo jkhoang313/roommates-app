@@ -8,6 +8,8 @@ import LoginPage from './components/LoginPage'
 import Chat from './components/Chat'
 import Bill from './components/Bill'
 import Calendar from './components/Calendar'
+import EditProfile from './components/EditProfile'
+import EditHome from './components/EditHome'
 
 export default (
   <Route path="/" component={App}>
@@ -19,5 +21,7 @@ export default (
     </Route>
     <Route path="signup" component={ SignupPage }/>
     <Route path="login" component={ LoginPage }/>
+    <Route path="edit_profile" component={ EditProfile }/>
+    <Route path="edit_home" component={ EditHome }/>
   </Route>
 )

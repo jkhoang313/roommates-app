@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:3000/api/v1'
+axios.defaults.baseURL = 'https://bunkr-api.herokuapp.com/api/v1'
 
 export default {
   createTransaction: function(transactionObject) {

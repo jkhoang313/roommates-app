@@ -14,10 +14,10 @@ body {
   float: right;
 }
 
-div.card.horizontal.col.s3 {
+div.card.horizontal.col.s2 {
   height: 180px;
   padding: 0px;
-  border: 5px;
+  margin-right: 10px;
   border-radius: 15px;
 }
 
@@ -27,26 +27,6 @@ div.card.horizontal.col.s3 {
 
 .card.horizontal .card-image img.card-image {
   border-radius: 15px;
-}
-
-p.true {
-  color: green;
-}
-
-p.false {
-  color: red;
-}
-
-.charge-roommate {
-  width: 90%;
-}
-
-input#charge-amount {
-  text-align: right;
-}
-
-.tabs-list {
-  margin-top: 10px;
 }
 
 #selectSubmit {
@@ -79,10 +59,6 @@ input#charge-amount {
   font-size: 10px;
 }
 
-.main-row {
-  background-color: #EEEEEE;
-}
-
 div.collapsible-body {
   padding: 5px;
   margin-left: 5px;
@@ -97,7 +73,7 @@ div.collapsible-body {
 }
 
 div.container {
-  margin: 50px 50px 50px 50px;
+  margin: 4% 4% 4% 4%;
   width: 90%;
 }
 
@@ -145,4 +121,62 @@ body {
 
 .splash-icons {
   height: 50px;
+}
+
+table {
+  font-size: 9px;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+img.prof-pic {
+  height: 100px;
+  width: 100px;
+}
+
+img.thumbnail {
+  height: 35px;
+  width: 35px;
+  margin-top: 5px;
+}
+
+.small-margin-vertical {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+a.collapsible-header {
+  border: none;
+}
+
+div.collapsible-body {
+  border: none;
+}
+
+ul.collabsible.chat-box {
+  overflow-y: scroll;
+  height: 200px;
 }

@@ -20,12 +20,13 @@ class Home extends Component {
   }
 
   kickMember(event) {
-    this.props.kickMember(this.props.id, event.target.id)
+    // this.props.kickMember(this.props.id, event.target.id)
   }
 
   render() {
     return (
-      <div>
+      <div className="row">
+        <div className="col s11 z-depth-2">
         { this.props.existingHome ?
           <p>No home</p> :
           [<p className='profile-info-header' key='home-header'>Home Name:</p>,
@@ -40,11 +41,12 @@ class Home extends Component {
               return <li key={index}>
                 <img src={member.image_url} className="circle thumbnail" alt={member.first_name}/>
                  <span className='profile-info'>  { member.user_name }</span>
-                { member.id !== this.props.currentUser.id ? <Button onClick={this.kickMember} id={member.id} data-confirm="hi">Remove</Button> : null }
+                { member.id !== this.props.currentUser.id ? <Button onClick={this.kickMember} id={member.id} data-confirm="hi" className="float-right">Remove</Button> : null }
               </li>
             }) }
           </ul>,
           <p key="remove-home"><Button onClick={this.leaveHome}>Leave Home</Button></p>]}
+        </div>
       </div>
     )
   }
