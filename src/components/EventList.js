@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchEvents } from '../actions'
-// import Moment from 'react-moment';
 
 class EventList extends Component {
   componentDidMount(){
@@ -46,6 +45,3 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventList)
-
-// <li><b>Start:</b> <Moment format="MM-DD-YYYY h:mmA">{event.starting_date}</Moment></li>
-// <li><b>End:</b> <Moment format="MM-DD-YYYY h:mmA">{event.ending_date}</Moment></li>

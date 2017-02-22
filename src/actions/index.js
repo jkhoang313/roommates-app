@@ -162,6 +162,7 @@ export function fetchMessages(){
 
 export function addMessage(message){
   var newMessage = messagesAdapter.addMessage(message)
+
   return {
     type: 'ADD_MESSAGE',
     payload: newMessage
@@ -170,6 +171,7 @@ export function addMessage(message){
 
 export function addEvent(eventObj){
   var newEvent = eventsAdapter.addEvent(eventObj)
+
   return {
     type: 'ADD_EVENT',
     payload: newEvent

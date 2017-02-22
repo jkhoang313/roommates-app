@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Button, Icon, Input } from 'react-materialize'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import { addEvent } from '../actions'
 
-export default class EventForm extends Component {
+class EventForm extends Component {
   constructor(){
     super()
 
@@ -24,8 +26,6 @@ export default class EventForm extends Component {
       start_date: this.state.startDate,
       end_date: this.state.endDate
     }
-
-    addEvent(event)
     this.setState({
       title: '',
       date: '',
@@ -33,6 +33,7 @@ export default class EventForm extends Component {
       startDate: '',
       endDate: ''
     })
+    this.props.addEvent(event)
   }
 
   render(){
@@ -85,3 +86,10 @@ export default class EventForm extends Component {
     )
   }
 }
+
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ addEvent }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(EventForm)
