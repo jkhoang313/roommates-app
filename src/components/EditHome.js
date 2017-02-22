@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { updateHome } from '../actions'
+import { browserHistory } from 'react-router'
 
 class EditHome extends Component {
   constructor(props) {
@@ -20,14 +21,14 @@ class EditHome extends Component {
       address: this.state.address,
     }
     this.props.updateHome(this.props.id, home)
-    this.props.goToWall()
+    browserHistory.push("/homepage")
   }
 
   render() {
     return (
       <div className="container">
         <div className="row">
-          <div className="col s12 z-depth-2">
+          <div className="col s11 z-depth-2">
             <h4>Edit Home</h4>
             <form onSubmit={ this.submitForm } className="left-align">
               <div className="input-field">

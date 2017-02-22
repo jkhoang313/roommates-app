@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { updateUserProfile } from '../actions'
+import { browserHistory } from 'react-router'
 
 class EditProfile extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class EditProfile extends Component {
       image_url: this.state.imageURL
     }
     this.props.updateUserProfile(user)
-    this.props.goToWall()
+    browserHistory.push("/homepage")
   }
 
   render() {
@@ -36,7 +37,7 @@ class EditProfile extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col s12 z-depth-2">
+          <div className="col s11 z-depth-2">
             <h4>Edit Profile</h4>
             <form className="left-align" onSubmit={this.submitForm}>
               <div className="input-field">

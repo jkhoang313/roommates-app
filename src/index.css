@@ -4,14 +4,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 * {
   font-family: 'Neuton', serif;
-}
-
-.float-right {
-  float: right;
 }
 
 div.card.horizontal.col.s2 {
@@ -75,6 +74,8 @@ div.collapsible-body {
 div.container {
   margin: 4% 4% 4% 4%;
   width: 90%;
+  padding: 0px;
+  border: 0px;
 }
 
 .fullwidth-photo {
@@ -89,13 +90,16 @@ div.container {
   background-attachment: fixed;
   background-size: cover;
   margin-top: -60px;
-  height: 500px;
+  height: 750px;
   cursor: default;
+}
+
+.container {
+  background-color: white;
 }
 
 .section-1 {
   margin-top: 60px;
-
 }
 
 .header-logo {
@@ -106,15 +110,10 @@ div.container {
   text-shadow: 2px 2px #FFF
 }
 
-body {
-   display: flex;
-   min-height: 100vh;
-   flex-direction: column;
- }
-
- main {
+main {
    flex: 1 0 auto;
- }
+}
+
 .neuton {
   font-family: 'Neuton', serif;
 }
@@ -180,3 +179,20 @@ ul.collabsible.chat-box {
   overflow-y: scroll;
   height: 200px;
 }
+
+div#root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+div.footer-container {
+  width: 98%;
+  margin-left: 1%;
+}
+
+/*div.z-depth-2 {
+  background-color: white;
+  border: outset #448aff;
+  border-radius: 3px;
+}*/

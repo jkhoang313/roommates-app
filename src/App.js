@@ -1,16 +1,14 @@
 import './App.css';
 import React, { Component } from 'react';
 import NavBar from './components/Navbar'
-import Footer from './components/Footer'
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <main>
         <NavBar />
         { this.props.children }
-        <Footer />
-      </div>
+      </main>
     );
   }
 }

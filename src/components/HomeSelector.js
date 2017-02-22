@@ -31,34 +31,36 @@ class HomeSelector extends Component {
 
   render(){
     return(
-      <div>
-        <h3>Join an Existing Home</h3>
-        <Row>
-        <form onSubmit={ this.submitHandler } >
-          <Input
-            s={6}
-            type='select'
-            value={ this.state.value }
-            onChange={ this.handleChange }
-            >
-              <option
-                value=""
-                disabled
-                defaultValue
-                >
-                  Choose a home to join
-                </option>
-              { this.props.homes.map((home) =>
+      <div className="row">
+        <div className="col s11 z-depth-2 center-align">
+          <h3>Join an Existing Home</h3>
+          <Row>
+          <form onSubmit={ this.submitHandler } >
+            <Input
+              s={8}
+              type='select'
+              value={ this.state.value }
+              onChange={ this.handleChange }
+              >
                 <option
-                  value={ home.id }
-                  key={ home.id }>{ home.name }
-                </option>
-              )}
-          </Input>
-          <Button id="selectSubmit" type='submit'>Select</Button>
-        </form>
-      </Row>
+                  value=""
+                  disabled
+                  defaultValue
+                  >
+                    Choose a home to join
+                  </option>
+                { this.props.homes.map((home) =>
+                  <option
+                    value={ home.id }
+                    key={ home.id }>{ home.name }
+                  </option>
+                )}
+            </Input>
+            <Button id="selectSubmit" type='submit'>Select</Button>
+          </form>
+        </Row>
       </div>
+    </div>
     )
   }
 }
