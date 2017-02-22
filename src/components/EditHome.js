@@ -26,7 +26,7 @@ class EditHome extends Component {
   render() {
     return (
       <div>
-        <p>Edit Home</p>
+        <h4>Edit Home</h4>
         <form onSubmit={ this.submitForm } className="left-align">
           <div className="input-field">
             <input

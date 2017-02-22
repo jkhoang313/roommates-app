@@ -100,3 +100,7 @@ div.container {
 table {
   font-size: 9px;
 }
+
+.dropdown-links {
+  color: teal;
+}

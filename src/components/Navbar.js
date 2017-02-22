@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { logOut, fetchUser } from '../actions/index'
+import { Dropdown } from 'react-materialize'
 
 
 class Navbar extends Component {
@@ -28,12 +29,17 @@ class Navbar extends Component {
         <div className="nav-wrapper blue darken-2">
           <Link to="/" className="brand-logo left" id="nav-logo">bunkr</Link>
           <ul id="nav-mobile" className="right">
-          { this.props.currentUser ?
+          { this.props.loggedIn ?
             [<li key="1"><Link to="/homepage/chat">Chat</Link></li>,
             <li key="2"><Link to="/homepage/bill">Bills</Link></li>,
             <li key="3"><Link to="/homepage/calendar">Events</Link></li>,
-            <li key="4">Signed in as { this.props.userName }</li>,
-            <li key="5"><Link to="/login" onClick={ this.logOut }>Log Out</Link></li>] :
+            <li key="4"><Dropdown options={{belowOrigin: true}}  trigger={<Link>Settings</Link>}>
+              <li><Link to="/edit_profile">Edit Profile</Link></li>
+              <li><Link to="/edit_home">Edit Home</Link></li>
+              <li><Link to="/login" onClick={ this.logOut }>Log Out</Link></li>
+            </Dropdown></li>,
+            <li key="5">Signed in as { this.props.userName }</li>
+            ] :
             [<li key="1"><Link to="/signup" className='profile-info'>Sign Up</Link></li>,
              <li key="2"><Link to="/login" className='profile-info'>Log In</Link></li>] }
           </ul>
@@ -45,7 +51,7 @@ class Navbar extends Component {
 
 function mapStateToProps(state) {
   return {
-    currentUser: !!state.currentUser.id,
+    loggedIn: !!state.currentUser.id,
     userName: state.currentUser.user_name
   }
 }

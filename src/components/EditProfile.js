@@ -32,11 +32,10 @@ class EditProfile extends Component {
   }
 
   render() {
-    //doesn't update members on home
     //change password form
     return (
       <div>
-        <p>Edit Profile</p>
+        <h4>Edit Profile</h4>
         <form className="left-align" onSubmit={this.submitForm}>
           <div className="input-field">
             <input type="text" id="first_name" value={ this.state.firstName } onChange={ (event) => this.setState({ firstName: event.target.value }) }/>
