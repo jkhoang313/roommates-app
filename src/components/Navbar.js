@@ -24,6 +24,7 @@ class Navbar extends Component {
 
   render() {
     return (
+      <div className='navbar-fixed'>
       <nav>
         <div className="nav-wrapper blue darken-2">
           <Link to="/" className="brand-logo left" id="nav-logo">bunkr</Link>
@@ -34,11 +35,12 @@ class Navbar extends Component {
             <li key="3"><Link to="/homepage/calendar">Events</Link></li>,
             <li key="4">Signed in as { this.props.userName }</li>,
             <li key="5"><Link to="/login" onClick={ this.logOut }>Log Out</Link></li>] :
-            [<li key="1"><Link to="/signup" className='profile-info'>Sign Up</Link></li>,
-             <li key="2"><Link to="/login" className='profile-info'>Log In</Link></li>] }
+            [<li key="1"><Link to="/signup" className=''>SIGN UP</Link></li>,
+             <li key="2"><Link to="/login" className=''>LOG IN</Link></li>] }
           </ul>
         </div>
       </nav>
+    </div>
     )
   }
 }
