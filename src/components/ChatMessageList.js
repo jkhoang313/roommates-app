@@ -13,7 +13,7 @@ class ChatMessageList extends Component {
 
   render(){
     return (
-      <Collapsible>
+      <Collapsible style={{overflowY: "scroll", height: "400px", border: "none"}}>
         { this.props.messages.map((message) =>
           <ChatMessage
             message={ message.content }

@@ -20,7 +20,7 @@ class Home extends Component {
   }
 
   kickMember(event) {
-    this.props.kickMember(this.props.id, event.target.id)
+    // this.props.kickMember(this.props.id, event.target.id)
   }
 
   render() {

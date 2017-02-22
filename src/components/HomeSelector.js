@@ -65,7 +65,7 @@ class HomeSelector extends Component {
 
 function mapStateToProps(state){
   return {
-    homes: state.allHomes
+    homes: state.allHomes || []
   }
 }
 

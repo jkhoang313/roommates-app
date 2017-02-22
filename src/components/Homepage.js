@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Profile from './Profile'
 import Home from './Home'
 import HomeForm from './HomeForm'
-import Wall from './Wall'
+// import Wall from './Wall'
 
 class Homepage extends Component {
   render() {
