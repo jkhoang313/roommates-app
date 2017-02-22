@@ -25,6 +25,7 @@ class Navbar extends Component {
 
   render() {
     return (
+      <div className='navbar-fixed'>
       <nav>
         <div className="nav-wrapper blue darken-2">
           <Link to="/" className="brand-logo left" id="nav-logo">bunkr</Link>
@@ -45,6 +46,7 @@ class Navbar extends Component {
           </ul>
         </div>
       </nav>
+    </div>
     )
   }
 }
