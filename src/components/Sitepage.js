@@ -9,9 +9,9 @@ export default class Sitepage extends Component {
       <div>
         <div className='sitepageStuff'>
           <div className='row section-1'>
-            <h1 className='main-text col m8 offset-m2 s12 center header blue-text text-darken-2 header-logo' style={{  position: "relative", top: "70px"}}>Welcome to <span className='header-logo'>bunkr</span></h1>
+            <h1 className='main-text col m8 offset-m2 s12 center header blue-text text-darken-2 header-logo' style={{  position: "relative", top: "150px"}}>Welcome to <span className='header-logo'>bunkr</span></h1>
           </div>
-          <div className='row section-4 white' style={{  position: "relative", top: "30%"}}>
+          <div className='row section-4 white' style={{  position: "relative", top: "40%"}}>
             <div className='col m12 center'>
               <h3 className='header'>What is bunkr?</h3>
             </div>

@@ -32,7 +32,7 @@ class Navbar extends Component {
           <ul id="nav-mobile" className="right">
           { this.props.loggedIn ?
             [<li key="1"><Link to="/homepage/chat">Chat</Link></li>,
-            <li key="2"><Link to="/homepage/bill">Bills</Link></li>,
+            <li key="2"><Link to="/homepage/bills">Bills</Link></li>,
             <li key="3"><Link to="/homepage/calendar">Events</Link></li>,
             <li key="4"><Dropdown options={{belowOrigin: true}}  trigger={<Link>Settings<i className="material-icons right">arrow_drop_down</i></Link>}>
               <li><Link to="/edit_profile">Edit Profile</Link></li>

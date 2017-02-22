@@ -16,7 +16,7 @@ export default (
     <IndexRoute component={Sitepage}/>
     <Route path="homepage" component={ Homepage }>
       <Route path="chat" component={ Chat }/>
-      <Route path="bill" component={ Bill }/>
+      <Route path="bills" component={ Bill }/>
       <Route path="calendar" component={ Calendar }/>
     </Route>
     <Route path="signup" component={ SignupPage }/>

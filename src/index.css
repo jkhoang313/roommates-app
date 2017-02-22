@@ -72,10 +72,10 @@ div.collapsible-body {
 }
 
 div.container {
-  margin: 4% 4% 4% 4%;
   width: 90%;
   padding: 0px;
   border: 0px;
+  margin-top: 4%;
 }
 
 .fullwidth-photo {
@@ -90,12 +90,8 @@ div.container {
   background-attachment: fixed;
   background-size: cover;
   margin-top: -60px;
-  height: 750px;
+  height: 1200px;
   cursor: default;
-}
-
-.container {
-  background-color: white;
 }
 
 .section-1 {
