@@ -34,39 +34,44 @@ class SignupPage extends Component {
 
   render() {
     return (
-      <div>
-      <h2>Signup Page</h2>
-        <form onSubmit={ this.submitForm }>
-          <div className="input-field">
-            <input type="text" id="first_name" className="validate" value={ this.state.firstName } onChange={ (event) => this.setState({ firstName: event.target.value }) }/>
-            <label htmlFor="first_name">First Name</label>
+      <div className="container">
+        <div className="row">
+          <div className="col s12 z-depth-2">
+            <h2>Signup Page</h2>
+            <form onSubmit={ this.submitForm }>
+              <div className="input-field">
+                <input type="text" id="first_name" className="validate" value={ this.state.firstName } onChange={ (event) => this.setState({ firstName: event.target.value }) }/>
+                <label htmlFor="first_name">First Name</label>
+              </div>
+              <div className="input-field">
+                <input type="text" id="last_name" className="validate" value={ this.state.lastName } onChange={ (event) => this.setState({ lastName: event.target.value }) }/>
+                <label htmlFor="last_name">Last Name</label>
+              </div>
+              <div className="input-field">
+                <input type="text" id="user_name" className="validate" value={ this.state.userName } onChange={ (event) => this.setState({ userName: event.target.value }) }/>
+                <label htmlFor="user_name">User Name</label>
+              </div>
+              <div className="input-field">
+                <input type="text" id="email" className="validate" value={ this.state.email } onChange={ (event) => this.setState({ email: event.target.value }) }/>
+                <label htmlFor="email">Email Address</label>
+              </div>
+              <div className="input-field">
+                <input type="text" id="image-url" className="validate" value={ this.state.imageURL } onChange={ (event) => this.setState({ imageURL: event.target.value }) }/>
+                <label htmlFor="image-url">Image URL</label>
+              </div>
+              <div className="input-field">
+                <input type="password" id="password" className="validate" value={ this.state.password } onChange={ (event) => this.setState({ password: event.target.value }) }/>
+                <label htmlFor="password">New Password</label>
+              </div>
+              <div className="input-field">
+                <input type="password" id="password_confirmation" className="validate" value={ this.state.passwordConfirmation } onChange={ (event) => this.setState({ passwordConfirmation: event.target.value }) }/>
+                <label htmlFor="password_confirmation"> New Password Confirmation</label>
+              </div>
+              <input type="submit" className="btn"/>
+            </form>
+            <br></br>
           </div>
-          <div className="input-field">
-            <input type="text" id="last_name" className="validate" value={ this.state.lastName } onChange={ (event) => this.setState({ lastName: event.target.value }) }/>
-            <label htmlFor="last_name">Last Name</label>
-          </div>
-          <div className="input-field">
-            <input type="text" id="user_name" className="validate" value={ this.state.userName } onChange={ (event) => this.setState({ userName: event.target.value }) }/>
-            <label htmlFor="user_name">User Name</label>
-          </div>
-          <div className="input-field">
-            <input type="text" id="email" className="validate" value={ this.state.email } onChange={ (event) => this.setState({ email: event.target.value }) }/>
-            <label htmlFor="email">Email Address</label>
-          </div>
-          <div className="input-field">
-            <input type="text" id="image-url" className="validate" value={ this.state.imageURL } onChange={ (event) => this.setState({ imageURL: event.target.value }) }/>
-            <label htmlFor="image-url">Image URL</label>
-          </div>
-          <div className="input-field">
-            <input type="password" id="password" className="validate" value={ this.state.password } onChange={ (event) => this.setState({ password: event.target.value }) }/>
-            <label htmlFor="password">New Password</label>
-          </div>
-          <div className="input-field">
-            <input type="password" id="password_confirmation" className="validate" value={ this.state.passwordConfirmation } onChange={ (event) => this.setState({ passwordConfirmation: event.target.value }) }/>
-            <label htmlFor="password_confirmation"> New Password Confirmation</label>
-          </div>
-          <input type="submit" className="btn"/>
-        </form>
+        </div>
       </div>
     )
   }

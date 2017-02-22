@@ -13,18 +13,16 @@ class ChatMessageList extends Component {
 
   render(){
     return (
-      <div className="left-align">
-        <Collapsible>
-          { this.props.messages.map((message) =>
-            <ChatMessage
-              message={ message.content }
-              currentUserSent={ message.user.id === this.props.currentUser.id }
-              senderName={ message.user.user_name }
-              senderPic={ message.user.image_url }
-              sentAt={ message.sent_at}
-              key={ message.id }/>) }
-          </Collapsible>
-      </div>
+      <Collapsible>
+        { this.props.messages.map((message) =>
+          <ChatMessage
+            message={ message.content }
+            currentUserSent={ message.user.id === this.props.currentUser.id }
+            senderName={ message.user.user_name }
+            senderPic={ message.user.image_url }
+            sentAt={ message.sent_at}
+            key={ message.id }/>) }
+      </Collapsible>
     )
   }
 }

@@ -13,12 +13,12 @@ class Bill extends Component {
 
   render() {
     return (
-      <div className="row">
+      <div>
         {this.props.isRendering ? <p>Loading</p> :
-            [<h3 key="bill">Bills</h3>,
-            < MemberBalancesList key="member-balances-list"/>,
-            < TransactionsList key="transaction-list" />,
-            < TransactionForm key="tranaction-form" />]}
+          [< MemberBalancesList key="member-balances-list"/>,
+          <div className="row">< TransactionsList key="transaction-list" />
+          < TransactionForm key="tranaction-form" /></div>]
+        }
       </div>
     )
   }

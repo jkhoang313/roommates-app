@@ -53,10 +53,12 @@ class TransactionForm extends Component {
 
   render() {
     return (
-      <div className="left-align col s3">
-        <h4>Add Transaction</h4>
-        <Row>
-          <Input type='switch' value='1' offLabel="Expense" onLabel="Payment"  onChange={this.changeSwitch}/>
+      <div className="col s3">
+        <div className="row">
+        <div className="col s11 offset-s1 z-depth-2">
+        <h5>Add Transaction</h5>
+        <Row className="center-align">
+          <Input type='switch' value='1' offLabel="Expense" onLabel="Payment" onChange={this.changeSwitch} />
         </Row>
         { this.state.paymentType === "Expense" ?
           <form onSubmit={ this.submitTransaction }>
@@ -125,6 +127,9 @@ class TransactionForm extends Component {
             <input type="submit" className="btn"/>
           </form>
           }
+          <br></br>
+          </div>
+        </div>
       </div>
     )
   }

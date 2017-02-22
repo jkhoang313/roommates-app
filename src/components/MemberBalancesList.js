@@ -4,10 +4,13 @@ import { connect } from 'react-redux'
 class MemberBalancesList extends Component {
   render() {
     return (
-      <div className="col s11">
-        <div className="row">
+      <div className="row">
+        <div className="col s12 z-depth-2">
+          <h5>Roommate Finances</h5>
+          <div className="row">
+            <div className="col s11">
           { this.props.users.map((user) => {
-            return <div className="card horizontal col s3 green lighten-4" key={ user.user_name }>
+            return <div className="card horizontal col s2 green lighten-4" key={ user.user_name }>
               <div className="card-image center-align">
                 <img src={ user.image_url } className="card-image circle" alt={ user.user_name }/>
                 <br></br>
@@ -21,6 +24,8 @@ class MemberBalancesList extends Component {
             </div>
             }
           )}
+            </div>
+          </div>
         </div>
       </div>
     )
