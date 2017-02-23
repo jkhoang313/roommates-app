@@ -8,6 +8,7 @@ import LoginPage from './components/LoginPage'
 import Chat from './components/Chat'
 import Bill from './components/Bill'
 import Calendar from './components/Calendar'
+import HouseRules from './components/HouseRules'
 import EditProfile from './components/EditProfile'
 import EditHome from './components/EditHome'
 
@@ -18,6 +19,7 @@ export default (
       <Route path="chat" component={ Chat }/>
       <Route path="bills" component={ Bill }/>
       <Route path="calendar" component={ Calendar }/>
+      <Route path="house_rules" component={ HouseRules }/>
     </Route>
     <Route path="signup" component={ SignupPage }/>
     <Route path="login" component={ LoginPage }/>

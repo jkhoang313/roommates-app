@@ -30,19 +30,33 @@ class HouseRules extends Component {
 
   render() {
     return (
-      <div>
-        <p>House Rules</p>
-        <ol className="left-align collection">
-          { this.props.rules.split("\n").map((rule, index) => <li className="collection-item" key={index}>{rule}</li> )}
-        </ol>
-        <br></br>
-        <form id="rules" onSubmit={ this.submitForm.bind(this) }>
-          <div className="input-field col s10">
-            <textarea id="rules-input" form="rules" onChange={ this.handleChange.bind(this) } value={ this.state.houseRules } className="materialize-textarea"></textarea>
-            <label htmlFor="rules-input" className="active">Rules</label>
-            <input type="submit" value="Save"/>
+      <div className="row">
+        <div className="col s12">
+          <div className="row">
+            <div className="col s11 z-depth-2 center-align">
+              <h3>House Rules</h3>
+            </div>
           </div>
-        </form>
+          <div className="row">
+            <div className="col s11 z-depth-2">
+              <ol className="left-align collection">
+                { this.props.rules.split("\n").map((rule, index) => <li className="collection-item" key={index}>{rule}</li> )}
+              </ol>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col s11 z-depth-2">
+              <form id="rules" onSubmit={ this.submitForm.bind(this) }>
+                <div className="input-field col s10">
+                  <textarea id="rules-input" form="rules" onChange={ this.handleChange.bind(this) } value={ this.state.houseRules } className="materialize-textarea"></textarea>
+                  <label htmlFor="rules-input" className="active">Rules</label>
+                  <input type="submit" value="Save" style={{marginBottom: "10px"}} className="btn"/>
+                  <br></br>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
