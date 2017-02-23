@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Button } from 'react-materialize'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { browserHistory } from 'react-router'
 import { fetchCurrentHome, removeHome, kickMember } from '../actions'
 
 class Home extends Component {
@@ -17,6 +18,7 @@ class Home extends Component {
 
   leaveHome() {
     this.props.removeHome()
+    browserHistory.push("/homepage")
   }
 
   kickMember(event) {
