@@ -26,6 +26,8 @@ class EditProfile extends Component {
       last_name: this.state.lastName,
       user_name: this.state.userName,
       email: this.state.email,
+      password: this.state.password,
+      password_confirmation: this.state.passwordConfirmation,
       image_url: this.state.imageURL
     }
     this.props.updateUserProfile(user)
@@ -59,6 +61,14 @@ class EditProfile extends Component {
               <div className="input-field">
                 <input type="text" id="image-url" className="validate" value={ this.state.imageURL } onChange={ (event) => this.setState({ imageURL: event.target.value }) }/>
                 <label htmlFor="image-url" className="active">Image URL</label>
+              </div>
+              <div className="input-field">
+                <input type="password" id="password" className="validate" value={ this.state.password } onChange={ (event) => this.setState({ password: event.target.value }) }/>
+                <label htmlFor="password">New Password</label>
+              </div>
+              <div className="input-field">
+                <input type="password" id="password_confirmation" className="validate" value={ this.state.passwordConfirmation } onChange={ (event) => this.setState({ passwordConfirmation: event.target.value }) }/>
+                <label htmlFor="password_confirmation"> New Password Confirmation</label>
               </div>
               <input type="submit" className="btn" value="Save"/>
               <button className="btn" onClick={this.props.goToWall}>Cancel</button>

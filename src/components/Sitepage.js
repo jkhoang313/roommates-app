@@ -2,13 +2,25 @@ import React, { Component } from 'react'
 // import chaticon from '../../public/images/chaticon.png'
 // import billicon from '../../public/images/billicon.png'
 // import eventicon from '../../public/images/eventicon.png'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { demoLogIn } from '../actions'
 
-export default class Sitepage extends Component {
+class Sitepage extends Component {
+  
+  handleDemo(event) {
+    event.preventDefault()
+    this.props.demoLogIn()
+  }
+
   render() {
     return (
         <div className='sitepageStuff'>
           <div className='row section-1'>
             <h1 className='main-text col m8 offset-m2 s12 center header blue-text text-darken-2 header-logo'>Welcome to <span className='header-logo'>bunkr</span></h1>
+          </div>
+          <div className="wrapper">
+            <button className="btn" style={{position: "absolute", top: "420px", left: "44%", width: "200px", fontSize: "15px"}} onClick={this.handleDemo.bind(this)}>Demo</button>
           </div>
           <div className='row section-4 white'>
             <div className='col m12 center'>
@@ -34,3 +46,10 @@ export default class Sitepage extends Component {
     )
   }
 }
+
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ demoLogIn }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(Sitepage)
