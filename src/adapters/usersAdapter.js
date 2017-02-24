@@ -1,7 +1,9 @@
 import axios from 'axios'
+import { browserHistory } from 'react-router'
 
 axios.defaults.baseURL = 'https://bunkr-api.herokuapp.com/api/v1'
-import { browserHistory } from 'react-router'
+// axios.defaults.baseURL = 'http://localhost:3000/api/v1'
+
 
 export default {
  createUser: function(userObject) {

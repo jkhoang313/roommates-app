@@ -7,6 +7,7 @@ import messagesAdapter from '../adapters/messagesAdapter'
 import eventsAdapter from '../adapters/eventsAdapter'
 
 axios.defaults.baseURL = 'https://bunkr-api.herokuapp.com/api/v1'
+// axios.defaults.baseURL = 'http://localhost:3000/api/v1'
 
 export function createUser(userObject) {
   var response = usersAdapter.createUser(userObject)
@@ -184,5 +185,19 @@ export function fetchEvents(){
   return {
     type: 'FETCH_EVENTS',
     payload: events
+  }
+}
+
+export function demoLogIn() {
+  const user = {
+    user_name: "bradlypitt",
+    password: "s",
+  }
+
+  var response = usersAdapter.logIn(user)
+
+  return {
+    type: "LOG_IN",
+    payload: response
   }
 }
