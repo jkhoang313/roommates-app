@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
-// import chaticon from '../../public/images/chaticon.png'
-// import billicon from '../../public/images/billicon.png'
-// import eventicon from '../../public/images/eventicon.png'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { demoLogIn } from '../actions'
 
 class Sitepage extends Component {
-  
+
   handleDemo(event) {
     event.preventDefault()
     this.props.demoLogIn()

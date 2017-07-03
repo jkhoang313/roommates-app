@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Bangers|Rock+Salt|Neuton');
+@import url('https://fonts.googleapis.com/css?family=Rubick|Rock+Salt|Neuton');
 
 body {
   margin: 0;
@@ -37,8 +37,13 @@ div.card.horizontal.col.s2 {
   font-family: 'Rock Salt', cursive;
 }
 
+.nav-wrapper {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
 .profile-info {
-  font-family: 'Bangers', cursive;
+  font-family: 'Rubick',sans-serif;
 }
 
 .profile-info-header {
